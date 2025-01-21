@@ -355,3 +355,12 @@ def main():
 
 if _name_ == "_main_":
     main()
+def main():
+    try:
+        flask_thread = threading.Thread(target=run_flask)
+        telegram_thread = threading.Thread(target=run_telegram)
+        flask_thread.start()
+        telegram_thread.start()
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        sys.exit(1)  # Non-zero exit code for failure
