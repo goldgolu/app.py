@@ -1,0 +1,40 @@
+name: Deploy Python Application
+
+on:
+  push:
+    branches:
+      - main  # Ya jis branch par aap deploy karna chahte hain
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Aap apne requirement ke hisab se version change kar sakte hain
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Agar aapke paas requirements.txt hai
+
+    - name: Run script
+      run: |
+        python your_script.py  # Yahan apne script ka naam daalein
+
+    - name: Run tests
+      run: |
+        # Yahan aap apne tests ko run karne ka command daal sakte hain
+        # Example: python -m unittest discover -s tests
+        echo "No tests defined"  # Isse replace karein apne actual test command se
+
+    - name: Deploy
+      run: |
+        # Yahan aap apne deployment commands daal sakte hain
+        echo "Deploying application..."  # Isse replace karein apne actual deployment command se
+
