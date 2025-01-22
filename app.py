@@ -13,6 +13,7 @@ INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
 INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
 REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+updater = Updater(token=TOKEN, use_context=True)
 FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 print(f"OWNER_ID: {os.getenv('OWNER_ID', '12345678')}")  # Replace with the bot owner's Telegram user ID
 
