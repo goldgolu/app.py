@@ -353,7 +353,7 @@ def main():
     flask_thread.start()
     telegram_thread.start()
 
-if _name_ == "_main_":
+if__name__ == "__name__":
     main()
 def main():
     try:
