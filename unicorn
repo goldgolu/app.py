@@ -1,0 +1,36 @@
+# config/unicorn.rb
+
+# Set the working application directory
+app_dir = File.expand_path("../..", __FILE__)
+shared_dir = "#{app_dir}/shared"
+working_directory app_dir
+
+# Set the number of workers and threads
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+timeout 30
+
+# Set the socket location
+listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
+
+# Set the PID file location
+pid "#{shared_dir}/pids/unicorn.pid"
+
+# Set the log file locations
+stderr_path "#{shared_dir}/log/unicorn.stderr.log"
+stdout_path "#{shared_dir}/log/unicorn.stdout.log"
+
+# Preload the app for faster worker spawn times
+preload_app true
+
+# Garbage collection settings
+GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
+
+# If using ActiveRecord, disconnect before forking
+before_fork do |server, worker|
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
+end
+
+# After forking, re-establish the database connection
+after_fork do |server, worker|
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
+end
