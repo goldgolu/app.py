@@ -1,0 +1,14 @@
+[Unit]
+Description=Unicorn Application Server
+After=network.target
+
+[Service]
+User=your_user
+WorkingDirectory=/path/to/your/app
+ExecStart=/usr/local/bin/bundle exec unicorn -c /path/to/your/app/config/unicorn.rb -E production
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+sudo systemctl enable unicorn
+sudo systemctl start unicorn
