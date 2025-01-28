@@ -352,23 +352,6 @@ def main():
 if __name__ == "__main__":
     main()                                                                                                                              from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
-from flask import Flask, request, redirect, jsonify
-import threading
-import requests
-import os
-import time
-import random
-import sqlite3
-
-# Environment variables for secrets
-INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
-INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
-REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
-BOT_TOKEN = os.getenv('BOT_TOKEN', 'YOUR_TELEGRAM_BOT_TOKEN')
-FLASK_SERVER_URL = 'http://127.0.0.1:5000'
-OWNER_ID = int(os.getenv('OWNER_ID', '12345678'))  # Replace with the bot owner's Telegram user ID
-
 # Flask app setup
 app = Flask(__name__)
 
