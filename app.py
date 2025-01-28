@@ -352,47 +352,6 @@ def main():
 if __name__ == "__main__":
     main()                                                                                                                              from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 
-# Flask app setup
-app = Flask(__name__)
-
-# Database setup
-def init_db():
-    conn = sqlite3.connect('game_data.db')
-    cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS users (
-                        user_id INTEGER PRIMARY KEY,
-                        coins INTEGER DEFAULT 1000,
-                        pph INTEGER DEFAULT 0,
-                        level INTEGER DEFAULT 1,
-                        language TEXT DEFAULT 'English',
-                        sound_on BOOLEAN DEFAULT 1
-                    )''')
-    cursor.execute('''CREATE TABLE IF NOT EXISTS lotteries (
-                        date TEXT PRIMARY KEY,
-                        lottery_number INTEGER,
-                        spin_count INTEGER DEFAULT 0
-                    )''')
-    cursor.execute('''CREATE TABLE IF NOT EXISTS cards (
-                        card_id INTEGER PRIMARY KEY,
-                        card_type TEXT,
-                        description TEXT,
-                        pph_increase INTEGER,
-                        image_url TEXT
-                    )''')
-    cursor.execute('''CREATE TABLE IF NOT EXISTS tokens (
-                        token_id INTEGER PRIMARY KEY,
-                        user_id INTEGER,
-                        token_name TEXT,
-                        token_logo TEXT,
-                        max_supply INTEGER,
-                        description TEXT,
-                        is_active BOOLEAN DEFAULT 1
-                    )''')
-    conn.commit()
-    conn.close()
-
-init_db()
-
 # Helper functions for database operations
 def get_or_create_user(user_id):
     conn = sqlite3.connect('game_data.db')
