@@ -376,7 +376,7 @@ def run_telegram():
 
 from telegram.ext import Updater
 
-updater = Updater("YOUR_BOT_TOKEN", use_context=True)
+updater = Updater("7732399267:AAHZL625ABlGnBy0X1yjpavYiHnWWlLp28M", use_context=True)
 updater.start_polling()
 updater.idle()
 
