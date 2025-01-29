@@ -31,21 +31,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    # Start function ko home() ke andar indent karna hoga
     def start(update: Update, context: CallbackContext) -> None:
-    user_id = update.message.from_user.id
-    user = get_or_create_user(user_id)
+        user_id = update.message.from_user.id
+        user = get_or_create_user(user_id)
 
-    # Welcome message ke liye Inline Keyboard (Instagram Login button)
-    keyboard = [
-        [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    
-    # Send welcome message with Instagram login option
-    update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
-    
-    # Directly show the main menu after sending the welcome message
-    menu(update, context)
+        # Welcome message ke liye Inline Keyboard (Instagram Login button)
+        keyboard = [
+            [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        # Send welcome message with Instagram login option
+        update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
+
+        # Directly show the main menu after sending the welcome message
+        menu(update, context)
 
 
 # Serve favicon
