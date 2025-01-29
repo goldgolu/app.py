@@ -317,8 +317,16 @@ def toggle_sound(update: Update, context: CallbackContext) -> None:
     settings(update, context)
 
 def play_music(update: Update, context: CallbackContext) -> None:
-    music_file_path = '/mnt/data/WhatsApp Audio 2025-01-16 at 10.09.54_1637e20d.mp3'
-    update.callback_query.message.reply_audio(audio=open(music_file_path, 'rb'), caption="Here is your background music! Loop it for a continuous experience.")
+    music_file_path = '/mnt/data/WhatsApp Audio 2025-01-16 at 10.09.55_ebc49177.mp3'
+    
+    with open(music_file_path, 'rb') as audio:
+        update.callback_query.message.reply_audio(
+            audio=audio, 
+            caption="Here is your background music! It will automatically loop. 🎵"
+        )
+
+    # Send the same file again after a delay to simulate looping
+    context.job_queue.run_once(play_music, 10, context=update)
 
 def leaderboard(update: Update, context: CallbackContext) -> None:
     conn = sqlite3.connect('game_data.db')
