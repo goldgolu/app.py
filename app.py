@@ -27,6 +27,8 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 # Flask app setup
+from flask import Flask
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -47,6 +49,16 @@ def home():
 
         # Directly show the main menu after sending the welcome message
         menu(update, context)
+
+    # You must return a response here
+    return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
+
+# Serve favicon
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+# Database setup
 
 
 # Serve favicon
