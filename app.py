@@ -53,10 +53,9 @@ def home():
     # You must return a response here
     return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
 
-# Serve favicon
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
 # Database setup
 
