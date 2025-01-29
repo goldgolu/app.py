@@ -1,18 +1,4 @@
 from flask import Flask, send_from_directory
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Hello, this is your Flask app with a favicon!"
-
-# Serve favicon
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-if __name__ == "__main__":
-    app.run(debug=True)
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import Flask, request, redirect, jsonify
@@ -34,6 +20,15 @@ OWNER_ID = int(os.getenv('OWNER_ID', '12345678'))  # Replace with the bot owner'
 # Flask app setup
 app = Flask(_name_)
 
+@app.route('/')
+def home():
+    return "Hello, this is your Flask app with a favicon!"
+
+# Serve favicon
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    
 # Database setup
 def init_db():
     conn = sqlite3.connect('game_data.db')
