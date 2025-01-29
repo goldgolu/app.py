@@ -31,7 +31,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Hello, this is your Flask app with a favicon!"
+    return "PAWS 🐾 Game mein aapka swagat hai! Telegram ya Instagram se connect karein."
 
 # Serve favicon
 @app.route('/favicon.ico')
