@@ -13,7 +13,7 @@ import sqlite3
 INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
 INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
 REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
-BOT_TOKEN = os.getenv('BOT_TOKEN', 'YOUR_TELEGRAM_BOT_TOKEN')
+BOT_TOKEN = BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
 FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 import os
@@ -42,7 +42,7 @@ def start():
 
         # Welcome message with Instagram login button
         keyboard = [
-            [InlineKeyboardButton("Login with Instagram", url="https://your-flask-server-url/instagram/login")]
+            [InlineKeyboardButton("Login with Instagram", url="f"{FLASK_SERVER_URL}/instagram/login")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
@@ -373,8 +373,6 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(toggle_sound, pattern='^toggle_sound$'))
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
-
-from telegram.ext import Updater
 
 updater = Updater("7732399267:AAFVpDQlYO8-fsK5hI097yGgEZpNXrX1lqQ", use_context=True)
 updater.start_polling()
