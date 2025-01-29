@@ -47,6 +47,7 @@ def home():
     # Directly show the main menu after sending the welcome message
     menu(update, context)
 
+
 # Serve favicon
 @app.route('/favicon.ico')
 def favicon():
