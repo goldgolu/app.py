@@ -335,4 +335,13 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(toggle_language, pattern='^toggle_language$'))
     dp.add_handler(CallbackQueryHandler(toggle_sound, pattern='^toggle_sound$'))
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
-    dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))                                                                                                                      from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+    dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
+
+if __name__ == "__main__":
+    # Flask 
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.start()
+
+    # Telegram Bot 
+    run_telegram()
+
