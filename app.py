@@ -346,29 +346,3 @@ def main():
 
 if __name__ == "__main__":
     main()                                                                                                                              from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-
-# Helper functions for database operations
-def get_or_create_user(user_id):
-    conn = sqlite3.connect('game_data.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users WHERE user_id = ?", (user_id,))
-    user = cursor.fetchone()
-    if not user:
-        cursor.execute("INSERT INTO users (user_id) VALUES (?)", (user_id,))
-        conn.commit()
-        user = (user_id, 1000, 0, 1, 'English', 1)  # Default values
-    conn.close()
-    return user
-
-def update_user(user_id, coins=None, pph=None, level=None, language=None, sound_on=None):
-    conn = sqlite3.connect('game_data.db')
-    cursor = conn.cursor()
-    if coins is not None:
-        cursor.execute("UPDATE users SET coins = ? WHERE user_id = ?", (coins, user_id))
-    if pph is not None:
-        cursor.execute("UPDATE users SET pph = ? WHERE user_id = ?", (pph, user_id))
-    if level is not None:
-        cursor.execute("UPDATE users SET level = ? WHERE user_id = ?", (level, user_id))
-    if language is not None:
-        cursor.execute("UPDATE users SET language = ? WHERE user_id = ?", (language, user_id))
-    if sound_on is not None
