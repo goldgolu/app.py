@@ -374,6 +374,8 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
 
+updater.start_polling()
+
 if __name__ == '__main__':
     # Flask ko alag thread mein chalana
     flask_thread = threading.Thread(target=run_flask)
