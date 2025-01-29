@@ -18,7 +18,7 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 OWNER_ID = int(os.getenv('OWNER_ID', '12345678'))  # Replace with the bot owner's Telegram user ID
 
 # Flask app setup
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
