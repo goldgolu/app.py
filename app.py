@@ -17,6 +17,16 @@ BOT_TOKEN = os.getenv('BOT_TOKEN', 'YOUR_TELEGRAM_BOT_TOKEN')
 FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 OWNER_ID = int(os.getenv('OWNER_ID', '12345678'))  # Replace with the bot owner's Telegram user ID
 
+import os
+
+OWNER_ID = os.getenv('OWNER_ID', '12345678')
+
+if not OWNER_ID.isdigit():
+    print(f"⚠️ Error: Invalid OWNER_ID: {OWNER_ID}, using default 12345678.")
+    OWNER_ID = 12345678
+else:
+    OWNER_ID = int(OWNER_ID)
+
 # Flask app setup
 app = Flask(__name__)
 
