@@ -26,44 +26,45 @@ if not OWNER_ID.isdigit():
 else:
     OWNER_ID = int(OWNER_ID)
 
-# Flask app setup
-from flask import Flask
-
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Start function ko home() ke andar indent karna hoga
-    def start(update: Update, context: CallbackContext) -> None:
-        user_id = update.message.from_user.id
-        user = get_or_create_user(user_id)
+    # Home page logic here
+    return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
 
-        # Welcome message ke liye Inline Keyboard (Instagram Login button)
+@app.route('/start')
+def start():
+    # Telegram bot start function logic
+    def start_game(update: Update, context: CallbackContext) -> None:
+        user_id = update.message.from_user.id
+        # get_or_create_user(user_id) logic goes here
+
+        # Welcome message with Instagram login button
         keyboard = [
-            [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+            [InlineKeyboardButton("Login with Instagram", url="https://your-flask-server-url/instagram/login")]
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
-
-        # Send welcome message with Instagram login option
+        
         update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
 
-        # Directly show the main menu after sending the welcome message
-        menu(update, context)
-
-    # You must return a response here
-    return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
+        # Show the main menu (You can define the menu() function elsewhere in your code)
+        # menu(update, context)
+    
+    # Returning the response here, you can also integrate this with your Telegram bot's functionality
+    return "Start Game logic goes here."
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
-# Database setup
+@app.route('/menu')
+def menu():
+    # This will show the game interface or main menu
+    return "This is the game interface."
 
-
-# Serve favicon
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+if __name__ == '__main__':
+    app.run(debug=True)
     
 # Database setup
 def init_db():
