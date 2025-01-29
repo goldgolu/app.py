@@ -376,6 +376,45 @@ def run_telegram():
 
 updater.start_polling()
 
+def start(update: Update, context: CallbackContext):
+    user_id = update.message.from_user.id
+    user = get_or_create_user(user_id)
+    keyboard = [
+        [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    update.message.reply_text("Welcome to PAWS 🐾! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
+
+# Instagram login route
+@app.route('/instagram/login')
+def instagram_login():
+    return redirect(f"https://api.instagram.com/oauth/authorize?client_id={INSTAGRAM_CLIENT_ID}&redirect_uri={REDIRECT_URI}&response_type=code")
+
+@app.route('/instagram/callback')
+def instagram_callback():
+    code = request.args.get('code')
+    response = requests.post('https://api.instagram.com/oauth/access_token', data={
+        'client_id': INSTAGRAM_CLIENT_ID,
+        'client_secret': INSTAGRAM_CLIENT_SECRET,
+        'grant_type': 'authorization_code',
+        'redirect_uri': REDIRECT_URI,
+        'code': code
+    })
+    return jsonify(response.json())
+
+# Running Flask and Telegram bot concurrently
+def run_flask():
+    app.run(port=5000)
+
+def run_telegram():
+    updater = Updater(BOT_TOKEN)
+    dp = updater.dispatcher
+
+    dp.add_handler(CommandHandler("start", start))  # Command to start the game
+
+    dp.add_handler(CommandHandler("menu", menu))  # Command to show the game menu
+    updater.start_polling()
+
 if __name__ == '__main__':
     # Flask ko alag thread mein chalana
     flask_thread = threading.Thread(target=run_flask)
