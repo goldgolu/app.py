@@ -374,6 +374,9 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
 
+from telegram.ext import Updater
+
+updater = Updater("YOUR_BOT_TOKEN", use_context=True)
 updater.start_polling()
 updater.idle()
 
