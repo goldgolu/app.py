@@ -42,7 +42,8 @@ def start():
 
         # Welcome message with Instagram login button
         keyboard = [
-            [InlineKeyboardButton("Login with Instagram", url="f"{FLASK_SERVER_URL}/instagram/login")]
+            [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         
