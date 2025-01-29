@@ -358,7 +358,10 @@ def run_telegram():
     updater = Updater(BOT_TOKEN)
     dp = updater.dispatcher
 
+      # Existing handlers for different commands
     dp.add_handler(CommandHandler("start", start))
+    
+    # Here, add the /menu command handler
     dp.add_handler(CommandHandler("menu", menu))
     dp.add_handler(CallbackQueryHandler(play_business_empire, pattern='^play_business_empire$'))  # Business Empire game handler
     dp.add_handler(CallbackQueryHandler(complete_task_handler, pattern='^complete_task$'))  # Complete task handler
@@ -372,11 +375,10 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # Flask 
+    # Flask ko alag thread mein chalana
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.start()
 
-    # Telegram Bot 
+    # Telegram Bot ko main thread mein chalana
     run_telegram()
 
