@@ -63,9 +63,6 @@ def menu():
     # This will show the game interface or main menu
     return "This is the game interface."
 
-if __name__ == '__main__':
-    app.run(debug=True)
-    
 # Database setup
 def init_db():
     conn = sqlite3.connect('game_data.db')
@@ -374,7 +371,8 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    app.run(debug=True)
     # Flask 
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.start()
