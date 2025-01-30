@@ -13,7 +13,7 @@ import sqlite3
 INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
 INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
 REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
-BOT_TOKEN = BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
+BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
 FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 import os
@@ -27,22 +27,19 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Hello, Render!"
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
     
 @app.route('/')
 def home():
     # Home page logic here
     return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
+    
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
-@app.route('/start')
-def start():
-    # Telegram bot start function logic
+    @app.route('/game_start')
+def game_start():
+    return "Start Game logic goes here."
+
     def start_game(update: Update, context: CallbackContext) -> None:
         user_id = update.message.from_user.id
         # get_or_create_user(user_id) logic goes here
@@ -390,15 +387,9 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
 
-updater = Updater("7732399267:AAFVpDQlYO8-fsK5hI097yGgEZpNXrX1lqQ", use_context=True)
-updater.start_polling()
-updater.idle()
-
 if __name__ == '__main__':
-    # Flask ko alag thread mein chalana
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.start()
 
-    # Telegram Bot ko main thread mein chalana
     run_telegram()
     
