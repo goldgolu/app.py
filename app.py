@@ -21,43 +21,27 @@ if not OWNER_ID.isdigit():
 else:
     OWNER_ID = int(OWNER_ID)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 @app.route('/')
 def home():
-    # Home page logic here
-    return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
+    return render_template("home.html")
 
 @app.route('/menu')
 def menu():
-    # This will show the game interface or main menu
-    return "This is the game interface."
+    return render_template("menu.html")
 
 @app.route('/game_start')
 def game_start():
     return "Start Game logic goes here."
 
-def start_game(update: Update, context: CallbackContext) -> None:
-    user_id = update.message.from_user.id
-    # get_or_create_user(user_id) logic goes here
-
-    # Welcome message with Instagram login button
-    keyboard = [
-        [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
-
-    # Show the main menu (You can define the menu() function elsewhere in your code)
-    # menu(update, context)
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 # Database setup
 def init_db():
