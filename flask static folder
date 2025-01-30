@@ -1,0 +1,18 @@
+/PAWS_Game
+│── /static
+│   ├── /css
+│   │   ├── styles.css
+│   ├── /js
+│   │   ├── script.js
+│   ├── /images
+│       ├── logo.png
+│       ├── background.jpg
+│── /templates
+│   ├── base.html
+│   ├── home.html
+│   ├── menu.html
+│── app.py
+│── game_logic.py
+│── requirements.txt
+│── config.py
+│── database.db
