@@ -26,6 +26,9 @@ if not OWNER_ID.isdigit():
 else:
     OWNER_ID = int(OWNER_ID)
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
 app = Flask(__name__)
     
 @app.route('/')
@@ -33,9 +36,15 @@ def home():
     # Home page logic here
     return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
     
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
+    @app.route('/menu')
+def menu():
+    # This will show the game interface or main menu
+    return "This is the game interface."
+    
     @app.route('/game_start')
 def game_start():
     return "Start Game logic goes here."
@@ -58,15 +67,6 @@ def game_start():
     
     # Returning the response here, you can also integrate this with your Telegram bot's functionality
     return "Start Game logic goes here."
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
-
-@app.route('/menu')
-def menu():
-    # This will show the game interface or main menu
-    return "This is the game interface."
 
 # Database setup
 def init_db():
