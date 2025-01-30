@@ -1,0 +1,88 @@
+project_root/
+|-- app.py  # Your main Flask script
+|-- static/
+|   |-- css/
+|   |   |-- styles.css  # CSS file for styling
+|   |-- js/
+|   |   |-- script.js  # JavaScript file for interactivity
+|   |-- images/
+|       |-- logo.png  # Example image file
+|-- templates/
+|   |-- base.html  # Base template with common structure
+|   |-- index.html  # Home page
+|   |-- game.html  # Game interface
+
+# base.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PAWS Game{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>PAWS Game</h1>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+# index.html
+{% extends "base.html" %}
+{% block title %}Welcome to PAWS Game{% endblock %}
+{% block content %}
+    <h2>Welcome to PAWS Game</h2>
+    <p>Use /menu to access the game or login with Instagram.</p>
+    <a href="/game_start">Start Game</a>
+{% endblock %}
+
+# game.html
+{% extends "base.html" %}
+{% block title %}Game Interface{% endblock %}
+{% block content %}
+    <h2>Game Interface</h2>
+    <p>Play and earn rewards!</p>
+{% endblock %}
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* script.js */
+console.log("PAWS Game Loaded");
+
+# Flask Routes
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/game_start')
+def game_start():
+    return render_template('game.html')
+
+
+
