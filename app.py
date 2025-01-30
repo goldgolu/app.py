@@ -1,9 +1,6 @@
 from flask import Flask, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
-from flask import Flask, request, redirect, jsonify
-import threading
-import requests
 import os
 import time
 import random
@@ -16,8 +13,6 @@ REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
 BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
 FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
-import os
-
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
 if not OWNER_ID.isdigit():
@@ -26,47 +21,43 @@ if not OWNER_ID.isdigit():
 else:
     OWNER_ID = int(OWNER_ID)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-
 app = Flask(__name__)
-    
+
 @app.route('/')
 def home():
     # Home page logic here
     return "Welcome to PAWS Game! Use /menu to access the game or login with Instagram."
-    
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
-    @app.route('/menu')
+@app.route('/menu')
 def menu():
     # This will show the game interface or main menu
     return "This is the game interface."
-    
-    @app.route('/game_start')
+
+@app.route('/game_start')
 def game_start():
     return "Start Game logic goes here."
 
-    def start_game(update: Update, context: CallbackContext) -> None:
-        user_id = update.message.from_user.id
-        # get_or_create_user(user_id) logic goes here
+def start_game(update: Update, context: CallbackContext) -> None:
+    user_id = update.message.from_user.id
+    # get_or_create_user(user_id) logic goes here
 
-        # Welcome message with Instagram login button
-        keyboard = [
-            [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+    # Welcome message with Instagram login button
+    keyboard = [
+        [InlineKeyboardButton("Login with Instagram", url=f"{FLASK_SERVER_URL}/instagram/login")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-        
-        update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
+    update.message.reply_text("Welcome to PAWS 🐾 Game! Use /menu to access the game or login with Instagram:", reply_markup=reply_markup)
 
-        # Show the main menu (You can define the menu() function elsewhere in your code)
-        # menu(update, context)
-    
-    # Returning the response here, you can also integrate this with your Telegram bot's functionality
-    return "Start Game logic goes here."
+    # Show the main menu (You can define the menu() function elsewhere in your code)
+    # menu(update, context)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
 # Database setup
 def init_db():
