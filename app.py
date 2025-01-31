@@ -352,6 +352,7 @@ def instagram_callback():
     })
 
     try:
+        
     response = requests.post('https://api.instagram.com/oauth/access_token', data={...})
     response.raise_for_status()  
     data = response.json()
