@@ -351,17 +351,25 @@ def instagram_callback():
         'code': code
     })
 
-try:
-    response = requests.post('https://api.instagram.com/oauth/access_token', data={...})
-    response.raise_for_status()  
-    data = response.json()
-except requests.exceptions.RequestException as e:
-    return jsonify({"error": "Request to Instagram API failed", "details": str(e)}), 500
+@app.route('/get_instagram_data', methods=['POST'])
+def get_instagram_data():
+    try:
+        response = requests.post('https://api.instagram.com/oauth/access_token', data={...})  # Add actual parameters here
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": "Request to Instagram API failed", "details": str(e)}), 500
 
-if "error" in data:
-    return jsonify({"error": data["error_message"]}), 400
+    if "error" in data:
+        return jsonify({"error": data["error_message"]}), 400
 
-return jsonify(data)
+    # Assuming the access token is in the data from Instagram
+    access_token = data.get('access_token')
+    if access_token:
+        instagram_data = fetch_instagram_data(access_token)
+        return jsonify(instagram_data)
+    else:
+        return jsonify({"error": "No access token found"}), 400
 
 def fetch_instagram_data(access_token):
     url = "https://graph.instagram.com/me?fields=id,username&access_token=" + access_token
