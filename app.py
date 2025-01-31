@@ -351,8 +351,7 @@ def instagram_callback():
         'code': code
     })
 
-    try:
-        
+try:
     response = requests.post('https://api.instagram.com/oauth/access_token', data={...})
     response.raise_for_status()  
     data = response.json()
@@ -362,11 +361,7 @@ except requests.exceptions.RequestException as e:
 if "error" in data:
     return jsonify({"error": data["error_message"]}), 400
 
-
-    if "error" in data:
-        return jsonify({"error": data["error_message"]}), 400
-
-    return jsonify(data)
+return jsonify(data)
 
 def fetch_instagram_data(access_token):
     url = "https://graph.instagram.com/me?fields=id,username&access_token=" + access_token
@@ -381,7 +376,6 @@ def fetch_instagram_data(access_token):
         return {"error": data["error"]["message"]}
 
     return data
-
 
 # Run Flask and Telegram bot concurrently
 def run_flask():
