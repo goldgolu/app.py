@@ -1,3 +1,22 @@
+/PAWS_Game
+├── /static
+│   ├── /css
+│   │   ├── styles.css
+│   ├── /js
+│   │   ├── script.js
+│   ├── /images
+│       ├── logo.png
+│       ├── background.jpg
+├── /templates
+│   ├── base.html
+│   ├── index.html  # यह फ़ाइल यहाँ होनी चाहिए
+│   ├── menu.html
+├── app.py
+├── game_logic.py
+├── requirements.txt
+├── config.py
+└── database.db
+
 project_root/
 |-- app.py  # Your main Flask script
 |-- static/
