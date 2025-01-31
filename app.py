@@ -26,6 +26,8 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
+print("Template Folder: ", app.template_folder)
+
 
 @app.route('/')
 def home():
