@@ -26,6 +26,12 @@ else:
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
+@app.route("/")
+def home():
+    template_dir = os.path.abspath("templates/index.html")
+    print(f"Checking template path: {template_dir}")
+    return render_template("index.html")
+    
 # Routes
 @app.route('/')
 def home():
