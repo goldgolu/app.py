@@ -25,28 +25,22 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-print("Template Folder: ", app.template_folder)
 
-
+# Routes
 @app.route('/')
 def home():
-    return render_template("index.html")
-
-@app.route('/menu')
-def menu():
-    return render_template("menu.html")
+    return render_template('index.html')
 
 @app.route('/game_start')
 def game_start():
-    return "Start Game logic goes here."
+    return render_template('game.html')
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
-
 
 # Database setup
 def init_db():
