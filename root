@@ -18,12 +18,12 @@ project_root/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}PAWS Game{% endblock %}</title>
+    <title>{% block title %}PAWS RUNNING Game{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
-        <h1>PAWS Game</h1>
+        <h1>PAWS RUNNING Game</h1>
     </header>
     <main>
         {% block content %}{% endblock %}
@@ -34,9 +34,9 @@ project_root/
 
 # index.html
 {% extends "base.html" %}
-{% block title %}Welcome to PAWS Game{% endblock %}
+{% block title %}Welcome to PAWS RUNNING Game{% endblock %}
 {% block content %}
-    <h2>Welcome to PAWS Game</h2>
+    <h2>Welcome to PAWS RUNNING Game</h2>
     <p>Use /menu to access the game or login with Instagram.</p>
     <a href="/game_start">Start Game</a>
 {% endblock %}
@@ -73,7 +73,7 @@ a {
 }
 
 /* script.js */
-console.log("PAWS Game Loaded");
+console.log("PAWS RUNNING Game Loaded");
 
 # Flask Routes
 @app.route('/')
