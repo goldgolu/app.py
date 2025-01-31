@@ -2,6 +2,9 @@ from flask import Flask, render_template
 from flask import Flask, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
+from flask import request, redirect, jsonify
+import requests
+import threading
 import os
 import time
 import random
@@ -325,11 +328,21 @@ def leaderboard(update: Update, context: CallbackContext) -> None:
 # Flask route for Instagram login
 @app.route('/instagram/login')
 def instagram_login():
-    return redirect(f"https://api.instagram.com/oauth/authorize?client_id={INSTAGRAM_CLIENT_ID}&redirect_uri={REDIRECT_URI}&response_type=code")
+    if not INSTAGRAM_CLIENT_ID or INSTAGRAM_CLIENT_ID == 'mohammad':
+        return jsonify({"error": "Instagram Client ID is not set or invalid"}), 500
+
+    return redirect(f"https://api.instagram.com/oauth/authorize"
+                    f"?client_id={INSTAGRAM_CLIENT_ID}"
+                    f"&redirect_uri={REDIRECT_URI}"
+                    f"&response_type=code")
 
 @app.route('/instagram/callback')
 def instagram_callback():
     code = request.args.get('code')
+
+    if not code:
+        return jsonify({"error": "Authorization code missing"}), 400
+
     response = requests.post('https://api.instagram.com/oauth/access_token', data={
         'client_id': INSTAGRAM_CLIENT_ID,
         'client_secret': INSTAGRAM_CLIENT_SECRET,
@@ -337,7 +350,37 @@ def instagram_callback():
         'redirect_uri': REDIRECT_URI,
         'code': code
     })
-    return jsonify(response.json())
+
+    try:
+    response = requests.post('https://api.instagram.com/oauth/access_token', data={...})
+    response.raise_for_status()  
+    data = response.json()
+except requests.exceptions.RequestException as e:
+    return jsonify({"error": "Request to Instagram API failed", "details": str(e)}), 500
+
+if "error" in data:
+    return jsonify({"error": data["error_message"]}), 400
+
+
+    if "error" in data:
+        return jsonify({"error": data["error_message"]}), 400
+
+    return jsonify(data)
+
+def fetch_instagram_data(access_token):
+    url = "https://graph.instagram.com/me?fields=id,username&access_token=" + access_token
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+    except requests.exceptions.RequestException as e:
+        return {"error": "Failed to fetch Instagram data", "details": str(e)}
+
+    if "error" in data:
+        return {"error": data["error"]["message"]}
+
+    return data
+
 
 # Run Flask and Telegram bot concurrently
 def run_flask():
@@ -365,7 +408,7 @@ def run_telegram():
 
 if __name__ == '__main__':
     flask_thread = threading.Thread(target=run_flask)
-    flask_thread.daemon
+    flask_thread.daemon = True
     flask_thread.start()
 
     run_telegram()
