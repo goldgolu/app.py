@@ -25,7 +25,7 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 import os
-app = Flask(_name_, template_folder='my_templates')  # Specify the new template folder name
+ app = Flask(__name__, template_folder='my_templates') # Specify the new template folder name
     
 # Routes
 @app.route('/')
