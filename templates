@@ -1,4 +1,13 @@
 /PAWS RUNNING_Game
+├── /templates
+│   ├── index.html
+│   ├── base.html
+│   ├── menu.html
+├── app.py
+├── game_logic.py
+├── requirements.txt
+├── config.py
+└── database.db
 ├── /static
 │   ├── /css
 │   │   ├── styles.css
@@ -7,13 +16,3 @@
 │   ├── /images
 │       ├── logo.png
 │       ├── background.jpg
-├── /templates
-│   ├── base.html
-│   ├── index.html  # यह फ़ाइल यहाँ होनी चाहिए
-│   ├── menu.html
-├── app.py
-├── game_logic.py
-├── requirements.txt
-├── config.py
-└── database.db
-
