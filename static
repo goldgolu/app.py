@@ -1,3 +1,26 @@
+#index.html
+{% extends "base.html" %}
+{% block title %}Welcome to PAWS RUNNING Game{% endblock %}
+{% block content %}
+    <h2>Welcome to PAWS RUNNING Game</h2>
+    <p>Use /menu to access the game or login with Instagram.</p>
+    <a href="/game_start" class="btn">Start Game</a>
+    <div class="features">
+        <div class="feature">
+            <h3>Play & Earn</h3>
+            <p>Complete tasks and earn rewards.</p>
+        </div>
+        <div class="feature">
+            <h3>Leaderboard</h3>
+            <p>Compete with other players.</p>
+        </div>
+        <div class="feature">
+            <h3>Daily Rewards</h3>
+            <p>Login daily to claim your rewards.</p>
+        </div>
+    </div>
+{% endblock %}
+
 #base.html
 <!DOCTYPE html>
 <html lang="en">
@@ -22,29 +45,6 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-
-#index.html
-{% extends "base.html" %}
-{% block title %}Welcome to PAWS RUNNING Game{% endblock %}
-{% block content %}
-    <h2>Welcome to PAWS RUNNING Game</h2>
-    <p>Use /menu to access the game or login with Instagram.</p>
-    <a href="/game_start" class="btn">Start Game</a>
-    <div class="features">
-        <div class="feature">
-            <h3>Play & Earn</h3>
-            <p>Complete tasks and earn rewards.</p>
-        </div>
-        <div class="feature">
-            <h3>Leaderboard</h3>
-            <p>Compete with other players.</p>
-        </div>
-        <div class="feature">
-            <h3>Daily Rewards</h3>
-            <p>Login daily to claim your rewards.</p>
-        </div>
-    </div>
-{% endblock %}
 
 #game.html
 {% extends "base.html" %}
