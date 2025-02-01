@@ -1,28 +1,4 @@
 from flask import Flask, render_template, send_from_directory
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
-from flask import request, redirect, jsonify
-import requests
-import threading
-import os
-import time
-import random
-import sqlite3
-
-# Environment variables for secrets
-INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
-INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
-REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
-BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
-FLASK_SERVER_URL = 'http://127.0.0.1:5000'
-
-OWNER_ID = os.getenv('OWNER_ID', '12345678')
-
-if not OWNER_ID.isdigit():
-    print(f"⚠️ Error: Invalid OWNER_ID: {OWNER_ID}, using default 12345678.")
-    OWNER_ID = 12345678
-else:
-    OWNER_ID = int(OWNER_ID)
 
 import os
 app = Flask(__name__)
