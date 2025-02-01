@@ -23,8 +23,8 @@ if not OWNER_ID.isdigit():
     OWNER_ID = 12345678
 else:
     OWNER_ID = int(OWNER_ID)
-
- app = Flask(__name__, template_folder='my_templates')
+    
+app = Flask(__name__, template_folder='my_templates')
     
 # Routes
 @app.route('/')
