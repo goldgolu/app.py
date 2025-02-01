@@ -1,4 +1,12 @@
 from flask import Flask, render_template, send_from_directory
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
+from flask import request, redirect, jsonify
+import requests
+import threading
+import os
+import time
+import random
+import sqlite3
 
 import os
 app = Flask(__name__)
