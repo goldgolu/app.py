@@ -1,4 +1,4 @@
-/PAWS RUNNING_Game
+/my-flask-app
 ├── /templates
 │   ├── index.html
 │   ├── base.html
