@@ -1,1 +1,6 @@
-.env
+touch templates/.gitkeep
+touch static/.gitkeep
+touch static/css/.gitkeep
+touch static/js/.gitkeep
+touch static/images/.gitkeep
+
