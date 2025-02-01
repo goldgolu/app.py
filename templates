@@ -4,10 +4,6 @@
 ├── requirements.txt
 ├── config.py
 └── database.db
-├── /templates
-│   ├── index.html
-│   ├── base.html
-│   ├── menu.html
 ├── /static
 │   ├── /css
 │   │   ├── styles.css
@@ -16,3 +12,7 @@
 │   ├── /images
 │       ├── logo.png
 │       ├── background.jpg
+├── /templates
+│   ├── index.html
+│   ├── base.html
+│   ├── menu.html
