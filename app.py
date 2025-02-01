@@ -24,7 +24,8 @@ if not OWNER_ID.isdigit():
 else:
     OWNER_ID = int(OWNER_ID)
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
+import os
+app = Flask(__name__, template_folder=os.path.join(os.getcwd(), "templates"), static_folder=os.path.join(os.getcwd(), "static"))
     
 # Routes
 @app.route('/')
