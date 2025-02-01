@@ -25,7 +25,7 @@ else:
     OWNER_ID = int(OWNER_ID)
 
 import os
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates", static_folder="static")
     
 # Routes
 @app.route('/')
