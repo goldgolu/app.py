@@ -1,13 +1,13 @@
 /my-flask-app
-├── /templates
-│   ├── index.html
-│   ├── base.html
-│   ├── menu.html
 ├── app.py
 ├── game_logic.py
 ├── requirements.txt
 ├── config.py
 └── database.db
+├── /templates
+│   ├── index.html
+│   ├── base.html
+│   ├── menu.html
 ├── /static
 │   ├── /css
 │   │   ├── styles.css
