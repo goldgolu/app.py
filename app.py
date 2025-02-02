@@ -25,7 +25,7 @@ if __name__ == '__main__':
     
 @app.route('/')
 def home():
-    return render_templates('index.html')
+    return render_template('index.html')
 
 @app.route('/game_start')
 def game_start():
