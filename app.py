@@ -20,7 +20,7 @@ OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
 app = Flask(__name__, template_folder='templates')  # ✅ सही template folder
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
     
 @app.route('/')
