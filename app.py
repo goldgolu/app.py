@@ -1,4 +1,4 @@
-from flask import Flask, render_templates, send_from_directory
+from flask import Flask, render_template, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
