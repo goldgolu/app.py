@@ -18,15 +18,9 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
-if not OWNER_ID.isdigit():
-    print(f"⚠ Error: Invalid OWNER_ID: {OWNER_ID}, using default 12345678.")
-    OWNER_ID = 12345678
-else:
-    OWNER_ID = int(OWNER_ID)
-    
-app = Flask(__name__, template_folder='my_templates')
-    
-# Routes
+app = Flask(__name__, template_folder='templates')  # ✅ सही template folder
+
+# ------------------- Routes -------------------
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -39,8 +33,6 @@ def game_start():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 # Database setup
 def init_db():
