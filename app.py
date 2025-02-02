@@ -1,4 +1,4 @@
-from flask import Flask, render_index.html, send_from_directory
+from flask import Flask, render_templates, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
@@ -18,14 +18,14 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
-app = Flask(__name__, template_folder='index.html')  # ✅ सही template folder
+app = Flask(__name__, template_folder='templates')  # ✅ सही template folder
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
     
 @app.route('/')
 def home():
-    return render_index.html('index.html')
+    return render_templates('index.html')
 
 @app.route('/game_start')
 def game_start():
