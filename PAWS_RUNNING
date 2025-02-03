@@ -13,6 +13,6 @@ PAWS_RUNNING_Game/
 │       ├── logo.png
 │       ├── background.jpg
 ├── /templates
-│   ├── index.html
 │   ├── base.html
-│   ├── menu.html
+│   ├── index.html
+│   ├── game.html
