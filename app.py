@@ -18,6 +18,8 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
+os.system("python generate_logo.py")
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 if __name__ == '__main__':
