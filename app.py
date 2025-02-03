@@ -35,6 +35,25 @@ def game_start():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
 
+class AiRobota:
+    def __init__(self, owner_id):
+        self.owner_id = owner_id  # Owner ka ID jise AI bot ko control karne ka permission hoga
+
+    def assist_with_update(self, update, context):
+        """AI Bot game ko update karega (features ya fixes)."""
+        if update.message.from_user.id == self.owner_id:
+            # Update logic yahan implement karo
+            update.message.reply_text("Ai Robota: Game successfully updated!")
+        else:
+            update.message.reply_text("Ai Robota: Aapko is command ka access nahi hai.")
+
+    def handle_security(self, update, context):
+        """AI Bot game ki security ko monitor karega."""
+        if update.message.from_user.id == self.owner_id:
+            # Security check logic yahan implement karo
+            update.message.reply_text("Ai Robota: Security check passed.")
+        else:
+            update.message.reply_text("Ai Robota: Unauthorized security access attempt.")
 
 # Database setup
 def init_db():
@@ -314,6 +333,18 @@ def leaderboard(update: Update, context: CallbackContext) -> None:
 
     update.message.reply_text(leaderboard_message)
 
+# Ai Robota ko initialize karo
+ai_robota = AiRobota(owner_id=OWNER_ID)
+
+# Ai bot commands ke liye functions define karo
+def ai_help(update: Update, context: CallbackContext) -> None:
+    """'/ai_help' command handle karega."""
+    ai_robota.assist_with_update(update, context)
+
+def ai_security_check(update: Update, context: CallbackContext) -> None:
+    """'/ai_security' command handle karega."""
+    ai_robota.handle_security(update, context)
+
 # Flask route for Instagram login
 @app.route('/instagram/login')
 def instagram_login():
@@ -397,6 +428,8 @@ def run_telegram():
     dp.add_handler(CallbackQueryHandler(toggle_sound, pattern='^toggle_sound$'))
     dp.add_handler(CallbackQueryHandler(play_music, pattern='^play_music$'))
     dp.add_handler(CallbackQueryHandler(leaderboard, pattern='^leaderboard$'))
+    dp.add_handler(CommandHandler("ai_help", ai_help))  # Ai Robota se help lene ke liye
+    dp.add_handler(CommandHandler("ai_security", ai_security_check))  # Security check karne ke liye
 
 if __name__ == '__main__':
     flask_thread = threading.Thread(target=run_flask)
