@@ -1,86 +1,114 @@
-#styles.css
-/* General Styles */
+/* styles.css */
+
+/* सामान्य बॉडी स्टाइल */
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("../images/background.jpg");
-    background-size: cover;
-    background-position: center;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    font-family: 'Arial', sans-serif; /* फ़ॉन्ट परिवार */
+    background-color: #f0f0f0; /* हल्का ग्रे बैकग्राउंड */
+    margin: 0; /* मार्जिन को 0 करें */
+    padding: 0; /* पैडिंग को 0 करें */
 }
 
-header {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: white;
-    padding: 20px;
+/* हेडर स्टाइल */
+.header {
+    background: #35424a; /* गहरा ग्रे बैकग्राउंड */
+    color: #ffffff; /* सफेद टेक्स्ट */
+    padding: 20px 0; /* पैडिंग */
+    text-align: center; /* टेक्स्ट को केंद्र में रखें */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* हल्का शैडो */
 }
 
-header .logo {
-    height: 50px;
-    margin-bottom: 10px;
+/* बटन स्टाइल */
+.button {
+    background: #5cb85c; /* हरा बैकग्राउंड */
+    color: white; /* सफेद टेक्स्ट */
+    padding: 10px 20px; /* बटन की पैडिंग */
+    border: none; /* बॉर्डर को हटा दें */
+    border-radius: 5px; /* गोल कोने */
+    cursor: pointer; /* कर्सर को पॉइंटर बनाएं */
+    font-size: 16px; /* फ़ॉन्ट का आकार */
+    transition: background 0.3s, transform 0.2s; /* बैकग्राउंड रंग और आकार में परिवर्तन का समय */
 }
 
-main {
-    padding: 20px;
+/* बटन पर होवर करने पर */
+.button:hover {
+    background: #4cae4c; /* होवर करने पर बैकग्राउंड रंग */
+    transform: scale(1.05); /* आकार में हल्का बढ़ाना */
 }
 
-footer {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: white;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+/* कंटेनर स्टाइल */
+.container {
+    width: 80%; /* चौड़ाई */
+    margin: auto; /* ऑटो मार्जिन */
+    overflow: hidden; /* ओवरफ्लो को छिपाएं */
+    padding: 20px; /* पैडिंग */
+    background: #ffffff; /* सफेद बैकग्राउंड */
+    border-radius: 8px; /* गोल कोने */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
 }
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+/* लीडरबोर्ड स्टाइल */
+.leaderboard {
+    background: #ffffff; /* लीडरबोर्ड का बैकग्राउंड रंग */
+    border: 1px solid #ddd; /* बॉर्डर */
+    border-radius: 5px; /* गोल कोने */
+    padding: 20px; /* पैडिंग */
+    margin-top: 20px; /* ऊपर का मार्जिन */
 }
 
-.btn:hover {
-    background: #218838;
+/* टेबल स्टाइल */
+table {
+    width: 100%; /* टेबल की चौड़ाई */
+    border-collapse: collapse; /* बॉर्डर को जोड़ें */
 }
 
-/* Features Section */
-.features {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 40px;
+th, td {
+    border: 1px solid #ddd; /* सेल का बॉर्डर */
+    padding: 8px; /* पैडिंग */
+    text-align: left; /* टेक्स्ट को बाएं संरेखित करें */
 }
 
-.feature {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    width: 30%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+th {
+    background-color: #35424a; /* हेडर का बैकग्राउंड रंग */
+    color: white; /* टेक्स्ट का रंग */
 }
 
-/* Game Container */
-.game-container {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* नोटिफिकेशन स्टाइल */
+.notification {
+    background-color: #dff0d8; /* नोटिफिकेशन का बैकग्राउंड रंग */
+    color: #3c763d; /* टेक्स्ट का रंग */
+    padding: 10px; /* पैडिंग */
+    border: 1px solid #d6e9c6; /* बॉर्डर */
+    border-radius: 5px; /* गोल कोने */
+    margin: 10px 0; /* मार्जिन */
 }
 
-.game-stats {
-    margin-bottom: 20px;
+/* फॉर्म स्टाइल */
+input[type="text"], input[type="password"], select {
+    width: 100%; /* चौड़ाई */
+    padding: 10px; /* पैडिंग */
+    margin: 10px 0; /* मार्जिन */
+    border: 1px solid #ccc; /* बॉर्डर */
+    border-radius: 4px; /* गोल कोने */
 }
 
-#play-btn {
-    font-size: 18px;
-    padding: 15px 30px;
+/* फॉर्म बटन */
+input[type="submit"] {
+    background-color: #5cb85c; /* हरा बैकग्राउंड */
+    color: white; /* सफेद टेक्स्ट */
+    border: none; /* बॉर्डर को हटा दें */
+    padding: 10px 15px; /* पैडिंग */
+    border-radius: 5px; /* गोल कोने */
+    cursor: pointer; /* कर्सर को पॉइंटर बनाएं */
+    transition: background 0.3s; /* बैकग्राउंड रंग में परिवर्तन का समय */
+}
+
+input[type="submit"]:hover {
+    background-color: #4cae4c; /* होवर करने पर बैकग्राउंड रंग */
+}
+
+/* मीडिया क्वेरी */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* छोटे स्क्रीन के लिए चौड़ाई */
+    }
 }
