@@ -18,7 +18,7 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder="PAWS RUNNING/static", template_folder="templates")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
