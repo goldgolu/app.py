@@ -1,0 +1,18 @@
+PAWS_RUNNING_Game/
+├── app.py
+├── game_logic.py
+├── requirements.txt
+├── config.py
+└── database.db   mujhe ye batao apne repository mai kha add kiya jaaye or iska kaam kya hai
+├── /static
+│   ├── /css
+│   │   ├── styles.css
+│   ├── /js
+│   │   ├── script.js
+│   ├── /images
+│       ├── logo.png
+│       ├── background.jpg
+├── /templates
+│   ├── index.html
+│   ├── base.html
+│   ├── menu.html
