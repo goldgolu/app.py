@@ -20,6 +20,26 @@ OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
 os.system("python generate_logo.py")
 
+def download_fonts():
+    font_weights = {
+        300: "https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2",
+        400: "https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.woff2",
+        500: "https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2",
+        600: "https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2"
+    }
+
+    os.makedirs("static/fonts/poppins", exist_ok=True)
+
+    for weight, url in font_weights.items():
+        response = requests.get(url)
+        filename = f"poppins-v20-latin-{weight}.woff2"
+        with open(f"static/fonts/poppins/{filename}", "wb") as f:
+            f.write(response.content)
+        print(f"Downloaded {filename}")
+
+if __name__ == "__main__":
+    download_fonts()
+    
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 if __name__ == '__main__':
