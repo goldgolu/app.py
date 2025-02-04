@@ -55,7 +55,7 @@ app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/')
 
 @app.route('/static/<path:filename>')
 def static_files(filename):
-    return send_from_directory(settings.STATIC_FOLDER, filename)
+    return send_from_directory(os.path.join(os.getcwd(), "static"), filename)
     
 @app.route('/')
 def home():
