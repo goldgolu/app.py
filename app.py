@@ -40,7 +40,8 @@ def download_fonts():
         print(f"Downloaded {filename}")
 
 if __name__ == "__main__":
-    download_fonts()
+    if os.getenv("FLASK_ENV") == "development":
+        download_fonts()
     
 app = Flask(__name__, static_folder=settings.STATIC_FOLDER, template_folder=settings.TEMPLATES_FOLDER)
 app.config.from_object(settings)
