@@ -1,6 +1,14 @@
-touch templates/.gitkeep
-touch static/.gitkeep
-touch static/css/.gitkeep
-touch static/js/.gitkeep
-touch static/images/.gitkeep
+# Ignore SQLite database file
+database.db
 
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore log files
+*.log
+
+# Ignore virtual environment
+venv/
