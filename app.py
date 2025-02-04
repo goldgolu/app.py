@@ -18,8 +18,6 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
-os.system("python generate_logo.py")
-
 def download_fonts():
     font_weights = {
         300: "https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2",
