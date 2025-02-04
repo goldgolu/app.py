@@ -3,6 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
 from settings import STATIC_FOLDER, TEMPLATES_FOLDER
+from whitenoise import WhiteNoise
 import requests
 import threading
 import os
@@ -48,7 +49,6 @@ if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/')
-app.wsgi_app.add_files('static/')
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
