@@ -13,7 +13,10 @@ PAWS_RUNNING_Game/
 │   │   ├── logo.png
 │   │   ├── background.jpg
 ├── ├── /font
-│   ├── 
+│   ├── poppins-v20-latin-300.woff2
+│   ├── poppins-v20-latin-regular.woff2
+│   ├── poppins-v20-latin-500.woff2
+│   ├── poppins-v20-latin-600.woff2
 ├── /templates
 │   ├── base.html
 │   ├── index.html
