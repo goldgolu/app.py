@@ -2,7 +2,7 @@ from flask import Flask, render_template, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
-from settings import *
+from settings import STATIC_FOLDER, TEMPLATES_FOLDER
 import requests
 import threading
 import os
