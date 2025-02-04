@@ -1,5 +1,4 @@
-# Ignore SQLite database file
-database.db
+instance/
 
 # Ignore Python cache files
 __pycache__/
