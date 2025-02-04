@@ -1,5 +1,10 @@
 import os
 
+# Static aur Templates folder ka path
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+STATIC_FOLDER = os.path.join(BASE_DIR, "static")
+TEMPLATES_FOLDER = os.path.join(BASE_DIR, "templates")
+
 # Flask Configuration
 SECRET_KEY = os.getenv("SECRET_KEY", "your_default_secret_key")
 DEBUG = os.getenv("DEBUG", "True").lower() == "true"
@@ -9,11 +14,6 @@ DB_NAME = "game_data.db"
 DB_PATH = os.path.join(os.getcwd(), DB_NAME)
 SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_PATH}"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_FOLDER = os.path.join(BASE_DIR, 'static')
-TEMPLATES_FOLDER = os.path.join(BASE_DIR, 'templates')
-
 
 # WhiteNoise Configuration (if using for serving static files)
 USE_WHITENOISE = os.getenv("USE_WHITENOISE", "False").lower() == "true"
