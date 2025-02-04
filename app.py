@@ -38,10 +38,13 @@ def download_fonts():
 if __name__ == "__main__":
     download_fonts()
     
-app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/')
+app.wsgi_app.add_files('static/')
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
