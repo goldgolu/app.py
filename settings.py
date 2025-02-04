@@ -12,7 +12,7 @@ SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 # Static & Templates Configuration
 STATIC_FOLDER = "static"
-TEMPLATE_FOLDER = "templates"
+TEMPLATES_FOLDER = "templates"
 
 # WhiteNoise Configuration (if using for serving static files)
 USE_WHITENOISE = os.getenv("USE_WHITENOISE", "False").lower() == "true"
