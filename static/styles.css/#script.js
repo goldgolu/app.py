@@ -3,7 +3,7 @@
 // DOMContentLoaded इवेंट का उपयोग करके सुनिश्चित करें कि DOM पूरी तरह से लोड हो गया है
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Document loaded and ready!");
-
+    
     // बटन पर क्लिक करने पर एक अलर्ट दिखाने का उदाहरण
     const playButton = document.querySelector('.button');
     if (playButton) {
@@ -70,3 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// पेज लोड होते ही लीडरबोर्ड अपडेट करें
+window.onload = function() {
+    fetch('/leaderboard')
+    .then(response => response.json())
+    .then(data => updateLeaderboard(data));
+}
