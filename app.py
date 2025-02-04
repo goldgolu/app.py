@@ -44,7 +44,7 @@ if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
     
-app = Flask(__name__, static_folder='static', static_url_path='/static')
+app = Flask(__name__, static_folder='static', template_folder='templates'
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
