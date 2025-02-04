@@ -13,10 +13,14 @@ PAWS_RUNNING_Game/
 │   │   ├── logo.png
 │   │   ├── background.jpg
 ├── ├── /font
-│   ├── poppins-v20-latin-300.woff2
+│   ├── poppins-v20-latin-300.woff2  ✅ (Font files yahan hone chahiye)
+│   ├── poppins-v20-latin-300.woff
 │   ├── poppins-v20-latin-regular.woff2
+│   ├── poppins-v20-latin-regular.woff
 │   ├── poppins-v20-latin-500.woff2
+│   ├── poppins-v20-latin-500.woff
 │   ├── poppins-v20-latin-600.woff2
+│   ├── poppins-v20-latin-600.woff
 ├── /templates
 │   ├── base.html
 │   ├── index.html
