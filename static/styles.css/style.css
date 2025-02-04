@@ -1,5 +1,7 @@
 /* styles.css */
 
+@import url('fonts.css');
+
 /* सामान्य बॉडी स्टाइल */
 body {
     font-family: 'Arial', sans-serif; /* फ़ॉन्ट परिवार */
