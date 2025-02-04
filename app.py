@@ -38,7 +38,8 @@ def download_fonts():
 if __name__ == "__main__":
     download_fonts()
     
-app = Flask(__name__, static_folder='static', static_url_path='/static')
+app = Flask(__name__, static_folder=settings.STATIC_FOLDER, template_folder=settings.TEMPLATES_FOLDER)
+app.config.from_object(settings)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
