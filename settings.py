@@ -10,9 +10,10 @@ DB_PATH = os.path.join(os.getcwd(), DB_NAME)
 SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_PATH}"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-# Static & Templates Configuration
-STATIC_FOLDER = "static"
-TEMPLATES_FOLDER = "templates"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_FOLDER = os.path.join(BASE_DIR, 'static')
+TEMPLATES_FOLDER = os.path.join(BASE_DIR, 'templates')
+
 
 # WhiteNoise Configuration (if using for serving static files)
 USE_WHITENOISE = os.getenv("USE_WHITENOISE", "False").lower() == "true"
