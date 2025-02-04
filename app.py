@@ -8,6 +8,8 @@ import os
 import time
 import random
 import sqlite3
+import settings
+
 
 # Environment variables for secrets
 INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
