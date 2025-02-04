@@ -42,6 +42,10 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return app.send_static_file(filename)
     
 @app.route('/')
 def home():
@@ -54,10 +58,6 @@ def game_start():
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
-
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
 
 class AiRobota:
     def __init__(self, owner_id):
