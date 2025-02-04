@@ -3,7 +3,6 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
 from settings import STATIC_FOLDER, TEMPLATES_FOLDER
-from dotenv import load_dotenv
 from whitenoise import WhiteNoise
 import requests
 import threading
