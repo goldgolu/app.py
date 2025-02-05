@@ -13,10 +13,6 @@ instance/
 config.py
 settings.py
 
-# Static and media files
-staticfiles/
-media/
-
 # Logs and databases
 *.log
 db.sqlite3
