@@ -10,6 +10,11 @@
 
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
+
+    <!-- Fonts (e.g., Poppins) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='font/poppins.css') }}">
+
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
     <header>
@@ -27,5 +32,8 @@
 
     <!-- JavaScript -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Optional: Example of an image in the footer or anywhere else -->
+    <!-- <img src="{{ url_for('static', filename='images/footer-image.png') }}" alt="Footer Image"> -->
 </body>
 </html>
