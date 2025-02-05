@@ -1,7 +1,5 @@
 import os
 
-import os
-
 STATIC_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static")
 TEMPLATES_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
 
