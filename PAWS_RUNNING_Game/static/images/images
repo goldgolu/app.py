@@ -1,0 +1,41 @@
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+import os
+
+# Create Image
+img = Image.new('RGB', (512, 512), color='#0a0a2a')  # Dark Blue Background
+enhancer = ImageEnhance.Brightness(img)
+draw = ImageDraw.Draw(img)
+
+# Futuristic Border
+draw.rounded_rectangle([30, 30, 482, 482], radius=20, outline='#00ffff', width=10)
+
+# Glowing Text
+font = ImageFont.truetype("arialbd.ttf", 50)
+draw.text((80, 100), "PAWS", fill='#ff00ff', font=font, stroke_width=2, stroke_fill='white')
+draw.text((180, 180), "RUNNING", fill='#00ff00', font=font)
+
+# 3D Coin Design
+for i in range(5, 0, -1):
+    draw.ellipse((200, 300+i, 312, 412+i), fill='#ffff00' if i==1 else '#d4af37', outline='#ffd700')
+
+# Robot Icon (Pixel Art Style)
+robot_body = [(360, 400), (360, 340), (400, 340), (400, 400)]
+draw.polygon(robot_body, fill='#ff4444')
+draw.rectangle((370, 320, 390, 340), fill='#00ffff')  # Robot Head
+
+# Holographic Effect Overlay
+holo_overlay = Image.new('RGB', (512, 512), color=(0, 255, 255, 50))
+img = Image.blend(img, holo_overlay, alpha=0.1)
+
+# Animation Frames Export
+os.makedirs('static/animation_frames', exist_ok=True)
+for frame in range(5):
+    frame_img = img.copy()
+    enhancer = ImageEnhance.Brightness(frame_img)
+    frame_img = enhancer.enhance(1 + (frame * 0.1))  # Brightness shift for glow effect
+    frame_img.save(f'static/animation_frames/frame_{frame}.png')
+
+# Save Final Holographic Logo
+os.makedirs('static/images', exist_ok=True)
+img.save('static/images/game_logo_holo.png')
+print("SUCCESS! ✅ Image saved at static/images/game_logo_holo.png")
