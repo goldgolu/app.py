@@ -1,1 +1,6 @@
+# config.py में SQLite path को instance folder में set करें
+import os
+from pathlib import Path
 
+BASE_DIR = Path(__file__).parent
+SQLALCHEMY_DATABASE_URI = f"sqlite:///{BASE_DIR / 'instance' / 'database.db'}"
