@@ -1,8 +1,8 @@
 from flask import Flask, render_template, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
+from PAWS_RUNNING_Game.settings import STATIC_FOLDER, TEMPLATES_FOLDER
 from flask import request, redirect, jsonify
-from settings import STATIC_FOLDER, TEMPLATES_FOLDER
 from whitenoise import WhiteNoise
 import requests
 import threading
