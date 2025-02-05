@@ -48,6 +48,9 @@ app = Flask(__name__, static_folder=STATIC_FOLDER, template_folder=TEMPLATES_FOL
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
+app.config['STATIC_FOLDER'] = STATIC_FOLDER
+app.config['TEMPLATES_FOLDER'] = TEMPLATES_FOLDER
+
 # Static folder ka absolute path lena
 static_path = os.path.join(os.getcwd(), "static")
 app.wsgi_app = WhiteNoise(app.wsgi_app, root=static_path)
