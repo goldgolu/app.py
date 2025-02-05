@@ -1,7 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
-from PAWS_RUNNING_Game.settings import STATIC_FOLDER, TEMPLATES_FOLDER
 from flask import request, redirect, jsonify
 from whitenoise import WhiteNoise
 import requests
@@ -10,6 +9,7 @@ import os
 import time
 import random
 import sqlite3
+import settings
 
 
 
@@ -43,26 +43,12 @@ if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
         
-app = Flask(
-    __name__,
-    static_folder=os.path.join(os.getcwd(), "PAWS_RUNNING_Game", "static"),
-    template_folder=os.path.join(os.getcwd(), "PAWS_RUNNING_Game", "templates")
-)
-
-app.wsgi_app = WhiteNoise(app.wsgi_app, root="PAWS_RUNNING_Game/static/")
+app = Flask(__name__, 
+            static_folder=settings.STATIC_FOLDER, 
+            template_folder=settings.TEMPLATE_FOLDER)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
-app.config['STATIC_FOLDER'] = STATIC_FOLDER
-app.config['TEMPLATES_FOLDER'] = TEMPLATES_FOLDER
-
-static_path = os.path.join(os.getcwd(), "static")
-app.wsgi_app = WhiteNoise(app.wsgi_app, root=static_path)
-
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    return send_from_directory(os.path.join(os.getcwd(), "static"), filename)
     
 @app.route('/')
 def home():
