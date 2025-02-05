@@ -43,7 +43,7 @@ if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
         
-app = Flask(__name__, 
+app = Flask(__name__, static_folder="static", template_folder="templates")
             static_folder=os.path.join(os.getcwd(), "PAWS_RUNNING_Game", "static"), 
             template_folder="PAWS_RUNNING_Game/templates")
 
