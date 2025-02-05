@@ -1,5 +1,10 @@
 import os
 
+import os
+
+STATIC_FOLDER = os.path.join(os.getcwd(), "static")
+TEMPLATES_FOLDER = os.path.join(os.getcwd(), "templates")
+
 # Static aur Templates folder ka path
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 STATIC_FOLDER = os.path.join(BASE_DIR, "static")
