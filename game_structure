@@ -1,1 +1,24 @@
-
+PAWS_RUNNING_Game/
+├── app.py
+├── game_logic.py
+├── requirements.txt
+├── config.py
+├── .gitignore
+├── setting.py
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── script.js
+│   ├── images/
+│   │   ├── logo.png
+│   │   └── background.jpg
+│   └── font/
+│       ├── poppins-v20-latin-300.woff2
+│       └── ... (सभी font files)
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   └── game.html
+└── instance/           ✅ (नया folder, Git में ignore किया हुआ)
+    └── database.db     ✅ (production में इसे replace करें)
