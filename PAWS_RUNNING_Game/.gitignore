@@ -10,8 +10,6 @@ venv/
 
 # Flask specific
 instance/
-config.py
-settings.py
 
 # Logs and databases
 *.log
