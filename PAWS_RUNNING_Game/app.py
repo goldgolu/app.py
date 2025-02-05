@@ -43,7 +43,9 @@ if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
     
-app = Flask(__name__, static_folder=STATIC_FOLDER, template_folder=TEMPLATES_FOLDER)
+from flask import Flask
+
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
@@ -51,7 +53,6 @@ if __name__ == '__main__':
 app.config['STATIC_FOLDER'] = STATIC_FOLDER
 app.config['TEMPLATES_FOLDER'] = TEMPLATES_FOLDER
 
-# Static folder ka absolute path lena
 static_path = os.path.join(os.getcwd(), "static")
 app.wsgi_app = WhiteNoise(app.wsgi_app, root=static_path)
 
