@@ -10,7 +10,6 @@ import os
 import time
 import random
 import sqlite3
-import settings
 
 
 
