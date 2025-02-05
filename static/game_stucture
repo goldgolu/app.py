@@ -3,7 +3,8 @@ PAWS_RUNNING_Game/
 ├── game_logic.py
 ├── requirements.txt
 ├── config.py
-├── .gitignore          ✅ (इसमें `instance/` और `database.db` add करें)
+├── .gitignore
+├── setting.py
 ├── static/
 │   ├── css/
 │   │   └── styles.css
