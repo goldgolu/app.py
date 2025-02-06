@@ -66,10 +66,10 @@ def favicon():
 def get_leaderboard_data():
     # MySQL connection
     conn = mysql.connector.connect(
-    host="localhost",  # Local MySQL server ka address
-    user="mohammad",  # Aapka MySQL username
-    password="Mohali@321",  # Aapka MySQL password
-    database="sqlite3"  # Aapka MySQL database name
+     host=os.getenv("DB_HOST"),       # Render pe set kiya gaya host
+    user=os.getenv("DB_USER"),       # Render pe set kiya gaya username
+    password=os.getenv("DB_PASSWORD"),   # Render pe set kiya gaya password
+    database=os.getenv("DB_NAME")    # Render pe set kiya gaya database name
     )
     cursor = conn.cursor(dictionary=True)
 
