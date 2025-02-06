@@ -66,7 +66,7 @@ def favicon():
 def get_leaderboard_data():
     # MySQL connection
     conn = mysql.connector.connect(
-        host="localhost",  127.0.0.1:5000
+        host="localhost",  "localhost"
         user="your_username",  mohammad
         password="your_password",  Mohali@321
         database="your_database"  sqlite3
