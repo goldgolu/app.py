@@ -64,9 +64,8 @@ def favicon():
 
 @app.route('/leaderboard')
 def leaderboard():
-    # Yahan current user ko fetch karein, jaise ki session ya database se
-    user = get_current_user()  # Is function ko implement karna hoga
-    return render_template('leaderboard.html', user=user)
+    users = get_leaderboard_data()  # Yeh function database se data fetch karega
+    return render_template('leaderboard.html', leaderboard=users, user=current_user)
 
 class AiRobota:
     def __init__(self, owner_id):
