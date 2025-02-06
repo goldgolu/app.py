@@ -69,7 +69,7 @@ def get_leaderboard_data():
         host="localhost",  127.0.0.1:5000
         user="your_username",  mohammad
         password="your_password",  Mohali@321
-        database="your_database"  PAWS_RUNNING_Game
+        database="your_database"  sqlite3
     )
     cursor = conn.cursor(dictionary=True)
 
