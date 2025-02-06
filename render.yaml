@@ -5,8 +5,9 @@ services:
     pythonVersion: 3.9
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app"
+    startCommand: "gunicorn PAWS_RUNNING_Game.app:app"
+    staticPublishPath: static
     envVars:
       - key: PORT
         value: 5000
-      
+  
