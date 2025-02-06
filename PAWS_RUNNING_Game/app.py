@@ -62,6 +62,10 @@ def game_start():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
 
+@app.route("/leaderboard")
+def leaderboard():
+    return render_template("leaderboard.html")
+
 class AiRobota:
     def __init__(self, owner_id):
         self.owner_id = owner_id  # Owner ka ID jise AI bot ko control karne ka permission hoga
