@@ -1,128 +1,111 @@
-/* styles.css */
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/poppins-v20-latin-300.woff2") format('woff2'),
-       url("../fonts/poppins-v20-latin-300.woff") format('woff');
-}
-
+/* General Body Styles */
 body {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+  font-family: 'Poppins', sans-serif; /* Google Fonts se Poppins */
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
-
-/* सामान्य बॉडी स्टाइल */
-body {
-    font-family: 'Arial', sans-serif; /* फ़ॉन्ट परिवार */
-    background-color: #f0f0f0; /* हल्का ग्रे बैकग्राउंड */
-    margin: 0; /* मार्जिन को 0 करें */
-    padding: 0; /* पैडिंग को 0 करें */
-}
-
-/* हेडर स्टाइल */
+/* Header Style */
 .header {
-    background: #35424a; /* गहरा ग्रे बैकग्राउंड */
-    color: #ffffff; /* सफेद टेक्स्ट */
-    padding: 20px 0; /* पैडिंग */
-    text-align: center; /* टेक्स्ट को केंद्र में रखें */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* हल्का शैडो */
+  background: #35424a;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* बटन स्टाइल */
+/* Button Style */
 .button {
-    background: #5cb85c; /* हरा बैकग्राउंड */
-    color: white; /* सफेद टेक्स्ट */
-    padding: 10px 20px; /* बटन की पैडिंग */
-    border: none; /* बॉर्डर को हटा दें */
-    border-radius: 5px; /* गोल कोने */
-    cursor: pointer; /* कर्सर को पॉइंटर बनाएं */
-    font-size: 16px; /* फ़ॉन्ट का आकार */
-    transition: background 0.3s, transform 0.2s; /* बैकग्राउंड रंग और आकार में परिवर्तन का समय */
+  background: #5cb85c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
 }
 
-/* बटन पर होवर करने पर */
+/* Hover Effect on Button */
 .button:hover {
-    background: #4cae4c; /* होवर करने पर बैकग्राउंड रंग */
-    transform: scale(1.05); /* आकार में हल्का बढ़ाना */
+  background: #4cae4c;
+  transform: scale(1.05);
 }
 
-/* कंटेनर स्टाइल */
+/* Container Style */
 .container {
-    width: 80%; /* चौड़ाई */
-    margin: auto; /* ऑटो मार्जिन */
-    overflow: hidden; /* ओवरफ्लो को छिपाएं */
-    padding: 20px; /* पैडिंग */
-    background: #ffffff; /* सफेद बैकग्राउंड */
-    border-radius: 8px; /* गोल कोने */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* हल्का शैडो */
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* लीडरबोर्ड स्टाइल */
+/* Leaderboard Style */
 .leaderboard {
-    background: #ffffff; /* लीडरबोर्ड का बैकग्राउंड रंग */
-    border: 1px solid #ddd; /* बॉर्डर */
-    border-radius: 5px; /* गोल कोने */
-    padding: 20px; /* पैडिंग */
-    margin-top: 20px; /* ऊपर का मार्जिन */
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
 }
 
-/* टेबल स्टाइल */
+/* Table Style */
 table {
-    width: 100%; /* टेबल की चौड़ाई */
-    border-collapse: collapse; /* बॉर्डर को जोड़ें */
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid #ddd; /* सेल का बॉर्डर */
-    padding: 8px; /* पैडिंग */
-    text-align: left; /* टेक्स्ट को बाएं संरेखित करें */
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 th {
-    background-color: #35424a; /* हेडर का बैकग्राउंड रंग */
-    color: white; /* टेक्स्ट का रंग */
+  background-color: #35424a;
+  color: white;
 }
 
-/* नोटिफिकेशन स्टाइल */
+/* Notification Style */
 .notification {
-    background-color: #dff0d8; /* नोटिफिकेशन का बैकग्राउंड रंग */
-    color: #3c763d; /* टेक्स्ट का रंग */
-    padding: 10px; /* पैडिंग */
-    border: 1px solid #d6e9c6; /* बॉर्डर */
-    border-radius: 5px; /* गोल कोने */
-    margin: 10px 0; /* मार्जिन */
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 10px;
+  border: 1px solid #d6e9c6;
+  border-radius: 5px;
+  margin: 10px 0;
 }
 
-/* फॉर्म स्टाइल */
+/* Form Styles */
 input[type="text"], input[type="password"], select {
-    width: 100%; /* चौड़ाई */
-    padding: 10px; /* पैडिंग */
-    margin: 10px 0; /* मार्जिन */
-    border: 1px solid #ccc; /* बॉर्डर */
-    border-radius: 4px; /* गोल कोने */
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-/* फॉर्म बटन */
 input[type="submit"] {
-    background-color: #5cb85c; /* हरा बैकग्राउंड */
-    color: white; /* सफेद टेक्स्ट */
-    border: none; /* बॉर्डर को हटा दें */
-    padding: 10px 15px; /* पैडिंग */
-    border-radius: 5px; /* गोल कोने */
-    cursor: pointer; /* कर्सर को पॉइंटर बनाएं */
-    transition: background 0.3s; /* बैकग्राउंड रंग में परिवर्तन का समय */
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: #4cae4c; /* होवर करने पर बैकग्राउंड रंग */
+  background-color: #4cae4c;
 }
 
-/* मीडिया क्वेरी */
+/* Media Query for Small Screens */
 @media (max-width: 768px) {
-    .container {
-        width: 95%; /* छोटे स्क्रीन के लिए चौड़ाई */
-    }
+  .container {
+    width: 95%;
+  }
 }
