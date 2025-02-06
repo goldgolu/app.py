@@ -12,10 +12,7 @@ PAWS_RUNNING_Game/
 │   │   └── script.js
 │   ├── images/
 │   │   ├── logo.png
-│   │   └── background.jpg
-│   └── font/
-│       ├── poppins-v20-latin-300.woff2
-│       └── ... (सभी font files)
+│   │   └── background.jpg  
 ├── templates/
 │   ├── base.html
 │   ├── index.html
