@@ -66,10 +66,10 @@ def favicon():
 def get_leaderboard_data():
     # MySQL connection
     conn = mysql.connector.connect(
-        host="localhost",  # Apni database host ko set karen
-        user="your_username",  # Apna MySQL username
-        password="your_password",  # Apna MySQL password
-        database="your_database"  # Apni MySQL database ka naam
+        host="localhost",  127.0.0.1:5000
+        user="your_username",  mohammad
+        password="your_password",  Mohali@321
+        database="your_database"  PAWS_RUNNING_Game
     )
     cursor = conn.cursor(dictionary=True)
 
