@@ -12,11 +12,11 @@
     <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
 
     <!-- Fonts (e.g., Poppins) -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/poppins.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
 
     {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body style="font-family: 'Poppins', sans-serif;">
     <header>
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PAWS RUNNING Logo" class="logo">
         <h1>PAWS RUNNING Game</h1>
