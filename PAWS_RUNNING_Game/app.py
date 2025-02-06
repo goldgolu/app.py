@@ -3,13 +3,13 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
 from whitenoise import WhiteNoise
+from PAWS_RUNNING_Game import settings
 import requests
 import threading
 import os
 import time
 import random
 import sqlite3
-import settings
 
 
 
