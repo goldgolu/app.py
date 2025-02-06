@@ -1,1 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Leaderboard</h1>
+
+    <!-- Owner Admin Section (only visible to owner) -->
+    {% if user.is_owner %}
+      <div class="admin-section mb-4">
+        <h3>Admin Panel</h3>
+        <p>As the owner, you can view all users' records here:</p>
+        <button class="btn btn-warning" onclick="showAllUsersRecords()">View All Users' Records</button>
+      </div>
+    {% endif %}
+
+    <!-- Leaderboard Table -->
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">User</th>
+          <th scope="col">Transactions</th>
+          <th scope="col">Coins</th>
+          <th scope="col">Levels</th>
+          <th scope="col">Lottery Wins</th>
+          <th scope="col">Profit/Hour</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in leaderboard %}
+          <tr>
+            <th scope="row">{{ user.rank }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.transactions }}</td>
+            <td>{{ user.coins }}</td>
+            <td>{{ user.levels }}</td>
+            <td>{{ user.lottery_wins }}</td>
+            <td>{{ user.profit_per_hour }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Modal for user record details (only if owner views) -->
+    <div class="modal" tabindex="-1" id="userRecordsModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Records</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p id="userRecordDetails"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showAllUsersRecords() {
+      // JavaScript code to fetch and display all user records if the user is the owner
+      alert('Fetching all user records...');
+      // Actual data fetch logic here...
+    }
+
+    // Function to view individual user records (for owner)
+    function viewUserRecord(userId) {
+      // Fetch user data (could be AJAX)
+      document.getElementById('userRecordDetails').innerText = 'Fetching user details for user ' + userId;
+      $('#userRecordsModal').modal('show');
+    }
+  </script>
+
+{% endblock %}
 
