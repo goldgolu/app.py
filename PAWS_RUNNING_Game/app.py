@@ -62,10 +62,29 @@ def game_start():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/logo.png')
 
-@app.route('/leaderboard')
+def get_leaderboard_data():
+    # MySQL connection
+    conn = mysql.connector.connect(
+        host="localhost",  # Apni database host ko set karen
+        user="your_username",  # Apna MySQL username
+        password="your_password",  # Apna MySQL password
+        database="your_database"  # Apni MySQL database ka naam
+    )
+    cursor = conn.cursor(dictionary=True)
+
+    # SQL query to fetch leaderboard data
+    cursor.execute("SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10;")
+    users = cursor.fetchall()  # Sabhi users ke data ko fetch karega
+
+    cursor.close()  # Connection ko close karen
+    conn.close()
+
+    return users  # Users ka data return karega
+
+@app.route("/leaderboard")
 def leaderboard():
-    users = get_leaderboard_data()  # Yeh function database se data fetch karega
-    return render_template('leaderboard.html', leaderboard=users, user=current_user)
+    users = get_leaderboard_data()  # Yeh function call karke data fetch karega
+    return render_template("leaderboard.html", users=users)
 
 class AiRobota:
     def __init__(self, owner_id):
