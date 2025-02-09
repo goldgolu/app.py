@@ -1,9 +1,9 @@
 paws_running/
-│
+|
 ├── app.py                     # Main application file (Flask + Telegram bot)
 ├── requirements.txt           # Python dependencies
 ├── .env                       # Environment variables (optional)
-│
+|
 ├── templates/                 # HTML templates for Flask
 │   ├── layout.html            # Base layout for the application
 │   ├── index.html             # Landing page for the game
@@ -16,7 +16,7 @@ paws_running/
 │   ├── ai_help.html           # Page for AI Robota help commands
 │   ├── ai_robota.html         # Page for AI Robota functionalities
 │   └── lottery.html           # Page to display lottery details and participation options
-│
+|
 ├── static/                    # Static files (CSS, JS, images)
 │   ├── css/
 │   │   ├── style.css              # Main CSS file for styling the application
@@ -31,42 +31,51 @@ paws_running/
 │   │   ├── trading.js             # JavaScript file for trading functionality
 │   │   ├── settings.js            # JavaScript file for user settings
 │   │   └── leaderboard.js         # JavaScript file for leaderboard interactions
-│   └── images/                   # Folder for images
-│       ├── icons/                # Folder for icons
-│       │   ├── home_icon.png              # Home icon
-│       │   ├── settings_icon.png           # Settings icon
-│       │   ├── help_icon.png               # Help icon
-│       │   ├── tasks_icon.png              # Tasks icon
-│       │   ├── trading_icon.png            # Trading icon
-│       │   ├── leaderboard_icon.png         # Leaderboard icon
-│       │   ├── lottery_icon.png             # Lottery icon
-│       │   ├── business_empire_icon.png     # Business Empire icon
-│       │   ├── ai_robota_icon.png           # AI Robota icon
-│       │   ├── notification_icon.png        # Notification icon
-│       │   └── logout_icon.png              # Logout icon
-│       └── backgrounds/           # Folder for background images
-│           ├── background.jpg              # Main background image
-│           ├── game_background.png          # Game background image
-│           ├── lottery_background.jpg        # Lottery background image
-│           ├── ai_robota_background.jpg      # AI Robota background image
-│           ├── trading_background.jpg        # Trading background image
-│           ├── tasks_background.jpg          # Tasks background image
-│           ├── leaderboard_background.jpg     # Leaderboard background image
-│           ├── menu_background.jpg            # Menu background image
-│           └── settings_background.jpg        # Settings background image
-│
+│   ├── images/                   # Folder for images
+│   │   ├── icons/                # Folder for icons
+│   │   │   ├── home_icon.png              # Home icon
+│   │   │   ├── settings_icon.png           # Settings icon
+│   │   │   ├── help_icon.png               # Help icon
+│   │   │   ├── tasks_icon.png              # Tasks icon
+│   │   │   ├── trading_icon.png            # Trading icon
+│   │   │   ├── leaderboard_icon.png         # Leaderboard icon
+│   │   │   ├── lottery_icon.png             # Lottery icon
+│   │   │   ├── business_empire_icon.png     # Business Empire icon
+│   │   │   ├── ai_robota_icon.png           # AI Robota icon
+│   │   │   ├── notification_icon.png        # Notification icon
+│   │   │   └── logout_icon.png              # Logout icon
+│   │   ├── backgrounds/           # Folder for background images
+│   │   │   ├── background.jpg              # Main background image
+│   │   │   ├── game_background.png          # Game background image
+│   │   │   ├── lottery_background.jpg        # Lottery background image
+│   │   │   ├── ai_robota_background.jpg      # AI Robota background image
+│   │   │   ├── trading_background.jpg        # Trading background image
+│   │   │   ├── tasks_background.jpg          # Tasks background image
+│   │   │   ├── leaderboard_background.jpg     # Leaderboard background image
+│   │   │   ├── menu_background.jpg            # Menu background image
+│   │   │   └── settings_background.jpg        # Settings background image
+│   │   ├── assets/               # Game assets folder
+│   │   │   ├── characters/       # Game characters (Doge, enemies, etc.)
+│   │   │   ├── items/            # Power-ups, coins, gems, weapons
+│   │   │   ├── UI/               # Buttons, panels, health bars
+│   │   │   ├── effects/          # Glow, animations, particles
+│   │   │   ├── airdrop/          # Airdrop box, parachute, rewards
+│   │   │   ├── currency/         # Game coins, gems, tokens
+│   │   │   ├── badges/           # Leaderboard badges, trophies
+│   │   │   ├── animations/       # Animated sprite sheets
+|
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
 │   └── init_db.py             # Database initialization script
-│
+|
 ├── tasks/                     # Task-related files
 │   ├── tasks.py               # Task management logic
 │   └── lottery.py             # Lottery management logic
-│
+|
 ├── ai/                        # AI bot related files
 │   └── ai_bot.py              # AI bot logic
-│
+|
 ├── trading/                   # Trading related files
 │   └── trading.py             # Trading logic
-│
+|
 └── README.md                  # Project documentation
