@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<h2>Settings</h2>
+<ul>
+    <li><a href="/toggle_language">Language: {{ language }}</a></li>
+    <li><a href="/toggle_sound">Sound: {{ sound_on }}</a></li>
+    <li><a href="/play_music">Play Background Music</a></li>
+</ul>
+<a href="/menu">Back to Menu</a>
+{% endblock %}
