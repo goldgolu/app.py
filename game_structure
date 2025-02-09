@@ -32,6 +32,18 @@ paws_running/
 │   │   ├── settings.js            # JavaScript file for user settings
 │   │   └── leaderboard.js         # JavaScript file for leaderboard interactions
 │   └── images/                   # Folder for images
+│       └── icons/                # Folder for icons
+│           ├── home_icon.png              # Home icon
+│           ├── settings_icon.png           # Settings icon
+│           ├── help_icon.png               # Help icon
+│           ├── tasks_icon.png              # Tasks icon
+│           ├── trading_icon.png            # Trading icon
+│           ├── leaderboard_icon.png         # Leaderboard icon
+│           ├── lottery_icon.png             # Lottery icon
+│           ├── business_empire_icon.png     # Business Empire icon
+│           ├── ai_robota_icon.png           # AI Robota icon
+│           ├── notification_icon.png        # Notification icon
+│           └── logout_icon.png              # Logout icon
 │
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
