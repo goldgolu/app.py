@@ -4,17 +4,34 @@ paws_running/
 ├── requirements.txt           # Python dependencies
 ├── .env                       # Environment variables (optional)
 │
-├── templates/                 # HTML templates for Flask (if needed)
-│   └── index.html             # Example HTML file
+├── templates/                 # HTML templates for Flask
+│   ├── layout.html            # Base layout for the application
+│   ├── index.html             # Landing page for the game
+│   ├── menu.html              # Menu page with game options
+│   ├── play_business_empire.html # Interface for the Business Empire game
+│   ├── tasks.html             # Page to display available tasks
+│   ├── trading.html           # Page for trading options
+│   ├── settings.html          # Page for user settings
+│   ├── leaderboard.html        # Page to display the leaderboard
+│   ├── ai_help.html           # Page for AI Robota help commands
+│   ├── ai_robota.html         # Page for AI Robota functionalities
+│   └── lottery.html           # Page to display lottery details and participation options
 │
 ├── static/                    # Static files (CSS, JS, images)
 │   ├── css/
-│   │   ├── css/
 │   │   ├── style.css              # Main CSS file for styling the application
 │   │   ├── responsive.css         # Responsive design styles
 │   │   └── components.css         # Specific component styles
 │   ├── js/
-│   └── images/
+│   │   ├── script.js              # Main JavaScript file for general interactivity
+│   │   ├── lottery.js             # JavaScript file for lottery functionality
+│   │   ├── ai_robota.js           # JavaScript file for AI Robota functionality
+│   │   ├── business_empire.js     # JavaScript file for Business Empire game
+│   │   ├── tasks.js               # JavaScript file for tasks management
+│   │   ├── trading.js             # JavaScript file for trading functionality
+│   │   ├── settings.js            # JavaScript file for user settings
+│   │   └── leaderboard.js         # JavaScript file for leaderboard interactions
+│   └── images/                   # Folder for images
 │
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
