@@ -1,0 +1,19 @@
+/* static/css/responsive.css */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    header {
+        text-align: left;
+        padding: 10px;
+    }
+
+    footer {
+        text-align: left;
+        padding: 10px;
+    }
+}
