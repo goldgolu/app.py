@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+<h2>Available Tasks</h2>
+<ul>
+    {% for task in tasks %}
+        <li>
+            Task {{ task[0] }}: {{ task[1] }} (Reward: {{ task[2] }} coins)
+            <a href="/complete_task/{{ task[0] }}">Complete</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="/menu">Back to Menu</a>
+{% endblock %}
