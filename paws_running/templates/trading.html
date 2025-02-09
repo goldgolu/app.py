@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Trading Section{% endblock %}
+
+{% block content %}
+<h2>💹 Trading Section 💹</h2>
+<p>Current Coins: {{ coins }}</p>
+<p>You can trade your coins for potential profits!</p>
+
+<ul>
+    <li><a href="/buy_asset">Buy Asset</a></li>
+    <li><a href="/sell_asset">Sell Asset</a></li>
+    <li><a href="/menu">Back to Menu</a></li>
+</ul>
+{% endblock %}
