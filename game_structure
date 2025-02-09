@@ -9,6 +9,10 @@ paws_running/
 │
 ├── static/                    # Static files (CSS, JS, images)
 │   ├── css/
+│   │   ├── css/
+│   │   ├── style.css              # Main CSS file for styling the application
+│   │   ├── responsive.css         # Responsive design styles
+│   │   └── components.css         # Specific component styles
 │   ├── js/
 │   └── images/
 │
