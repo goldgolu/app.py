@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Business Empire Game{% endblock %}
+
+{% block content %}
+<h2>🎮 Business Empire Game 🎮</h2>
+<p>Current Coins: {{ coins }}</p>
+<p>Profit Per Hour (PPH): {{ pph }}</p>
+<p>Play the game and increase your coins by completing tasks or upgrading!</p>
+
+<ul>
+    <li><a href="/complete_task">Complete Task</a></li>
+    <li><a href="/upgrade_business">Upgrade Business</a></li>
+</ul>
+{% endblock %}
