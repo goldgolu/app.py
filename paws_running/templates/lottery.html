@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Lottery{% endblock %}
+
+{% block content %}
+<h2>🎉 Lottery 🎉</h2>
+<p>Current Lottery Number: <strong>{{ lottery_number }}</strong></p>
+<p>Spin Count: <strong>{{ spin_count }}</strong></p>
+
+<h3>Participate in the Lottery</h3>
+<p>Spin the lottery to try your luck!</p>
+<form action="/spin_lottery" method="post">
+    <button type="submit">Spin Lottery</button>
+</form>
+
+<a href="/menu">Back to Menu</a>
+{% endblock %}
