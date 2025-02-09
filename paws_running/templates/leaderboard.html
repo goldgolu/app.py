@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Leaderboard{% endblock %}
+
+{% block content %}
+<h2>🏆 Leaderboard 🏆</h2>
+<ul>
+    {% for index, (user_id, coins) in enumerate(leaderboard_data, start=1) %}
+        <li>{{ index }}. User ID: {{ user_id }} - Coins: {{ coins }}</li>
+    {% endfor %}
+</ul>
+<a href="/menu">Back to Menu</a>
+{% endblock %}
