@@ -21,11 +21,11 @@ FLASK_SERVER_URL = 'http://127.0.0.1:5000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -434,7 +434,7 @@ def run_telegram():
     dp.add_handler(CommandHandler("ai_help", ai_help))  # Ai Robota se help lene ke liye
     dp.add_handler(CommandHandler("ai_security", ai_security_check))  # Security check karne ke liye
 
-if _name_ == '_main_':
+if __name__ == "__main__":
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.daemon = True
     flask_thread.start()
