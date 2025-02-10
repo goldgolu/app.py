@@ -26,6 +26,10 @@ if _name_ == "_main_":
 
 app = Flask(_name_)
 
+@app.route('/health')
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
 if _name_ == "_main_":
     app.run(debug=True)
 
