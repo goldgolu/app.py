@@ -1,9 +1,7 @@
-paws_running/
-|
+/PAWS_RUNNING_Game
 ├── app.py                     # Main application file (Flask + Telegram bot)
 ├── requirements.txt           # Python dependencies
 ├── .env                       # Environment variables (optional)
-|
 ├── templates/                 # HTML templates for Flask
 │   ├── layout.html            # Base layout for the application
 │   ├── index.html             # Landing page for the game
