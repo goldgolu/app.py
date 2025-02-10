@@ -24,6 +24,8 @@ OWNER_ID = os.getenv('OWNER_ID', '12345678')
 if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
+        
+os.rename("coins.png", "metapaw_coin.png")
 
 app = Flask(__name__)
 
