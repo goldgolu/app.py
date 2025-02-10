@@ -28,7 +28,7 @@ app = Flask(_name_)
 
 @app.route('/')
 def home():
-    return "PAWS RUNNING is Live!"
+    return "paws_running is Live!"
     
 @app.route('/health')
 def health_check():
