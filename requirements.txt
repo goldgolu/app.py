@@ -3,3 +3,4 @@ python-telegram-bot==20.0
 requests==2.28.1
 python-dotenv==0.20.0
 gunicorn
+Werkzeug>=2.3.0
