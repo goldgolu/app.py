@@ -22,29 +22,32 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r paws_running/requirements.txt
 
       - name: Check for Missing Files
         run: |
+          REQUIRED_FILES=("paws_running/app.py" "paws_running/requirements.txt" "paws_running/templates" "paws_running/static")
           MISSING_FILES=""
-          for file in app.py requirements.txt "templates/" "static/"; do
-            if [ ! -e "$file" ]; then
+          
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ ! -e "$file" ] && [ ! -d "$file" ]; then
               MISSING_FILES+="$file\n"
             fi
           done
+          
           if [ "$MISSING_FILES" != "" ]; then
-            echo "Error: Missing required files:\n$MISSING_FILES" >&2
+            echo -e "Error: Missing required files:\n$MISSING_FILES" >&2
             exit 1
           fi
 
       - name: Run Database Migrations (SQLite3)
         run: |
-          python -c "from app import db; db.create_all()"
+          python -c "from paws_running.app import db; db.create_all()"
 
       - name: Run Tests
         run: |
           pip install pytest
-          pytest > test_results.log || echo "Tests Failed"
+          pytest paws_running/tests/ > test_results.log || echo "Tests Failed"
 
       - name: Deploy to Render
         env:
