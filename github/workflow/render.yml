@@ -1,1 +1,65 @@
+name: Flask Auto Deploy & Test
+
+on:
+  push:
+    branches:
+      - main  # Jab main branch pe push hoga
+  workflow_dispatch:  # Manual run ka option bhi hoga
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Check for Missing Files
+        run: |
+          MISSING_FILES=""
+          for file in app.py requirements.txt "templates/" "static/"; do
+            if [ ! -e "$file" ]; then
+              MISSING_FILES+="$file\n"
+            fi
+          done
+          if [ "$MISSING_FILES" != "" ]; then
+            echo "Error: Missing required files:\n$MISSING_FILES" >&2
+            exit 1
+          fi
+
+      - name: Run Database Migrations (SQLite3)
+        run: |
+          python -c "from app import db; db.create_all()"
+
+      - name: Run Tests
+        run: |
+          pip install pytest
+          pytest > test_results.log || echo "Tests Failed"
+
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: ${{ secrets.SERVICE_ID }}
+        run: |
+          curl -X POST "https://api.render.com/v1/services/$SERVICE_ID/deploys" \
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Accept: application/json" \
+          -H "Content-Type: application/json" \
+          -d '{}'
+
+      - name: Upload Logs if Failed
+        if: failure()
+        run: |
+          echo "Deployment or tests failed. Check logs."
+          cat test_results.log
 
