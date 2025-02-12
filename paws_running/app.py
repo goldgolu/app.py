@@ -29,7 +29,43 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "paws_running is Live!"
+    return render_template('index.html')
+
+@app.route('/ai-help')
+def ai_help():
+    return render_template('ai_help.html')
+
+@app.route('/ai-robota')
+def ai_robota():
+    return render_template('ai_robota.html')
+
+@app.route('/leaderboard')
+def leaderboard():
+    return render_template('leaderboard.html')
+
+@app.route('/lottery')
+def lottery():
+    return render_template('lottery.html')
+
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+
+@app.route('/play-business-empire')
+def play_business_empire():
+    return render_template('play_business_empire.html')
+
+@app.route('/settings')
+def settings():
+    return render_template('settings.html')
+
+@app.route('/tasks')
+def tasks():
+    return render_template('tasks.html')
+
+@app.route('/trading')
+def trading():
+    return render_template('trading.html')
     
 @app.route('/health')
 def health_check():
