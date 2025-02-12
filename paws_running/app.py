@@ -35,7 +35,11 @@ def home():
 def health_check():
     return jsonify({"status": "ok"}), 200
 
-if _name_ == "_main_":
+@app.route('/config/<path:filename>')
+def serve_config(filename):
+    return send_from_directory('static/config', filename)
+    
+if __name__ == "__main__":
     app.run(debug=True)
 
 class AiRobota:
