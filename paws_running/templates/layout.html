@@ -23,5 +23,16 @@
     <footer>
         <p>&copy; 2023 PAWS 🐾 RUNNING. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Fetch UI configuration
+        fetch("{{ url_for('static', filename='config/ui_config.json') }}")
+            .then(response => response.json())
+            .then(data => {
+                console.log("UI Config Loaded:", data);
+                // Further customization logic here if needed
+            })
+            .catch(error => console.error("Error loading UI config:", error));
+    </script>
 </body>
 </html>
