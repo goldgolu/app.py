@@ -1,0 +1,52 @@
+{
+  "ui": {
+    "buttons": {
+      "play": "static/images/ui/button_images/button_play.png",
+      "settings": "static/images/ui/button_images/button_settings.png",
+      "leaderboard": "static/images/ui/button_images/button_leaderboard.png",
+      "tasks": "static/images/ui/button_images/button_tasks.png",
+      "trading": "static/images/ui/button_images/button_trading.png",
+      "wallet": "static/images/ui/button_images/button_wallet.png"
+    },
+    "sounds": {
+      "menu_open": "static/images/ui/button_images/sound/Menu Navigation Sounds/menu_open.wav",
+      "menu_close": "static/images/ui/button_images/sound/Menu Navigation Sounds/menu_close.wav",
+      "scroll": "static/images/ui/button_images/sound/Menu Navigation Sounds/scroll.wav",
+      "button_click": "static/images/ui/button_images/sound/Button & Click Sounds/button_click.wav",
+      "button_hover": "static/images/ui/button_images/sound/Button & Click Sounds/button_hover.wav",
+      "button_back": "static/images/ui/button_images/sound/Button & Click Sounds/button_back.wav",
+      "popup_open": "static/images/ui/button_images/sound/Notification & Pop-ups/popup_open.wav",
+      "popup_close": "static/images/ui/button_images/sound/Notification & Pop-ups/popup_close.wav",
+      "notification_alert": "static/images/ui/button_images/sound/Notification & Pop-ups/notification_alert.wav",
+      "airdrop_fall": "static/images/ui/button_images/sound/Special Effects (Airdrop, Coin, Rewards)/airdrop_fall.wav",
+      "coin_collect": "static/images/ui/button_images/sound/Special Effects (Airdrop, Coin, Rewards)/coin_collect.wav",
+      "reward_claim": "static/images/ui/button_images/sound/Special Effects (Airdrop, Coin, Rewards)/reward_claim.wav",
+      "success": "static/images/ui/button_images/sound/Success & Error Sounds/success.wav",
+      "error": "static/images/ui/button_images/sound/Success & Error Sounds/error.wav",
+      "level_up": "static/images/ui/button_images/sound/UI Animations & Effects/level_up.wav",
+      "loading_loop": "static/images/ui/button_images/sound/UI Animations & Effects/loading_loop.wav",
+      "ui_transition": "static/images/ui/button_images/sound/UI Animations & Effects/ui_transition.wav"
+    },
+    "backgrounds": {
+      "home": "static/images/background/background.jpg",
+      "leaderboard": "static/images/background/leaderboard_background.jpg",
+      "lottery": "static/images/background/lottery_background.jpg",
+      "menu": "static/images/background/menu_background.jpg",
+      "settings": "static/images/background/settings_background.jpg",
+      "tasks": "static/images/background/tasks_background.jpg",
+      "trading": "static/images/background/trading_background.jpg"
+    },
+    "icons": {
+      "home": "static/images/icons/home_icon.png",
+      "leaderboard": "static/images/icons/leaderboard_icon.png",
+      "lottery": "static/images/icons/lottery_icon.png",
+      "settings": "static/images/icons/settings_icon.png",
+      "tasks": "static/images/icons/tasks_icon.png",
+      "trading": "static/images/icons/trading_icon.png"
+    },
+    "fonts": {
+      "primary": "static/fonts/main_font.ttf",
+      "secondary": "static/fonts/secondary_font.ttf"
+    }
+  }
+}
