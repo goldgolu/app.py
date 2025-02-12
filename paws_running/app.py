@@ -43,7 +43,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 class AiRobota:
-    def _init_(self, owner_id):
+    def __init__(self, owner_id):
         self.owner_id = owner_id  # Owner ka ID jise AI bot ko control karne ka permission hoga
 
     def assist_with_update(self, update, context):
