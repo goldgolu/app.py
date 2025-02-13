@@ -175,7 +175,7 @@
 │   │   └── trading_icon.png
 │   └── logo.png
 └── js
-    ├── ai_robota.js:
+|    ├── ai_robota.js:
     ├── business_empire.js
     ├── leaderboard.js
     ├── lottery.js
