@@ -1,4 +1,4 @@
-from settings import STATIC_FOLDER, TEMPLATE_FOLDER
+from paws_running.settings import STATIC_FOLDER, TEMPLATE_FOLDER
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
