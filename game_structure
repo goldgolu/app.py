@@ -16,51 +16,173 @@
 │   └── lottery.html           # Page to display lottery details and participation options
 |
 ├── static/                    # Static files (CSS, JS, images)
-│   ├── css/
-│   │   ├── style.css              # Main CSS file for styling the application
-│   │   ├── responsive.css         # Responsive design styles
-│   │   └── components.css         # Specific component styles
-│   ├── js/
-│   │   ├── script.js              # Main JavaScript file for general interactivity
-│   │   ├── lottery.js             # JavaScript file for lottery functionality
-│   │   ├── ai_robota.js           # JavaScript file for AI Robota functionality
-│   │   ├── business_empire.js     # JavaScript file for Business Empire game
-│   │   ├── tasks.js               # JavaScript file for tasks management
-│   │   ├── trading.js             # JavaScript file for trading functionality
-│   │   ├── settings.js            # JavaScript file for user settings
-│   │   └── leaderboard.js         # JavaScript file for leaderboard interactions
-│   ├── images/                   # Folder for images
-│   │   ├── icons/                # Folder for icons
-│   │   │   ├── home_icon.png              # Home icon
-│   │   │   ├── settings_icon.png           # Settings icon
-│   │   │   ├── help_icon.png               # Help icon
-│   │   │   ├── tasks_icon.png              # Tasks icon
-│   │   │   ├── trading_icon.png            # Trading icon
-│   │   │   ├── leaderboard_icon.png         # Leaderboard icon
-│   │   │   ├── lottery_icon.png             # Lottery icon
-│   │   │   ├── business_empire_icon.png     # Business Empire icon
-│   │   │   ├── ai_robota_icon.png           # AI Robota icon
-│   │   │   ├── notification_icon.png        # Notification icon
-│   │   │   └── logout_icon.png              # Logout icon
-│   │   ├── backgrounds/           # Folder for background images
-│   │   │   ├── background.jpg              # Main background image
-│   │   │   ├── game_background.png          # Game background image
-│   │   │   ├── lottery_background.jpg        # Lottery background image
-│   │   │   ├── ai_robota_background.jpg      # AI Robota background image
-│   │   │   ├── trading_background.jpg        # Trading background image
-│   │   │   ├── tasks_background.jpg          # Tasks background image
-│   │   │   ├── leaderboard_background.jpg     # Leaderboard background image
-│   │   │   ├── menu_background.jpg            # Menu background image
-│   │   │   └── settings_background.jpg        # Settings background image
-│   │   ├── assets/               # Game assets folder
-│   │   │   ├── characters/       # Game characters (Doge, enemies, etc.)
-│   │   │   ├── items/            # Power-ups, coins, gems, weapons
-│   │   │   ├── UI/               # Buttons, panels, health bars
-│   │   │   ├── effects/          # Glow, animations, particles
-│   │   │   ├── airdrop/          # Airdrop box, parachute, rewards
-│   │   │   ├── currency/         # Game coins, gems, tokens
-│   │   │   ├── badges/           # Leaderboard badges, trophies
-│   │   │   ├── animations/       # Animated sprite sheets
+├── css
+│   ├── components.css
+│   ├── responsive.css
+│   └── styles.css
+├── images
+│   ├── assets
+│   │   ├── characters
+│   │   │   ├── bonus_characters
+│   │   │   │   ├── alien_cat.png
+│   │   │   │   ├── crystal_dragon.png
+│   │   │   │   ├── cyber_monkey_panda.png
+│   │   │   │   ├── cyber_phoenix.png
+│   │   │   │   ├── doge_sensei.png
+│   │   │   │   ├── electric_falcon.png
+│   │   │   │   ├── gedget_squirrel.png
+│   │   │   │   ├── glitch_rabbit.png
+│   │   │   │   ├── stealth_panther.png
+│   │   │   │   └── time_traveler_doge.png
+│   │   │   ├── crypto_doge.png
+│   │   │   ├── cyber_doge.png
+│   │   │   ├── doge_runner.png
+│   │   │   ├── dragon_doge.png
+│   │   │   ├── empire_doge.png
+│   │   │   ├── fire_doge.png
+│   │   │   ├── ghost_doge.png
+│   │   │   ├── ice_doge.png
+│   │   │   ├── learning_doge.png
+│   │   │   ├── magic_doge.png
+│   │   │   ├── mecha_doge.png
+│   │   │   ├── ninja_doge.png
+│   │   │   ├── npcs
+│   │   │   │   ├── ai_robota.png
+│   │   │   │   ├── guild_master_wolf.png
+│   │   │   │   ├── lotus_fox.png
+│   │   │   │   ├── mystic_toad.png
+│   │   │   │   ├── task_master.png
+│   │   │   │   └── trader_pigeon.png
+│   │   │   ├── pirate_doge.png
+│   │   │   ├── samurai_doge.png
+│   │   │   └── villains
+│   │   │       ├── airdrop_thief_rat.png
+│   │   │       ├── big_villain.png
+│   │   │       ├── cyber_cat.png
+│   │   │       ├── dark_owl.png
+│   │   │       ├── dark_zombie.png
+│   │   │       ├── evil_cat.png
+│   │   │       ├── mad_fox.png
+│   │   │       ├── robot_doge.png
+│   │   │       ├── shadow_wolf.png
+│   │   │       └── singal_powerful.png
+│   │   ├── items
+│   │   │   ├── boosters
+│   │   │   │   ├── luck_booster.png
+│   │   │   │   ├── speed_boost.png
+│   │   │   │   └── trading_intel.png
+│   │   │   ├── currency
+│   │   │   │   ├── business_shares.png
+│   │   │   │   ├── lottery_ticket.png
+│   │   │   │   └── metapaw_coin.png
+│   │   │   ├── customization
+│   │   │   │   ├── avatar
+│   │   │   │   │   ├──  avatar_doge.png
+│   │   │   │   │   ├──  avatar_doge2.png
+│   │   │   │   │   ├── avatar_cati.png
+│   │   │   │   │   ├── avatar_demon_wolf.png
+│   │   │   │   │   ├── avatar_lengendry.png
+│   │   │   │   │   ├── avatar_lion.png
+│   │   │   │   │   ├── avatar_mythical.png
+│   │   │   │   │   ├── avatar_panther.png
+│   │   │   │   │   ├── avatar_vip_dragon.png
+│   │   │   │   │   └── avatar_wolf.png
+│   │   │   │   ├── profile_frame_1.png
+│   │   │   │   ├── profile_frame_2.png
+│   │   │   │   ├── profile_frame_3.png
+│   │   │   │   ├── profile_frame_4.png
+│   │   │   │   ├── profile_frame_5.png
+│   │   │   │   ├── profile_frame_6.png
+│   │   │   │   ├── profile_frame_7.png
+│   │   │   │   ├── profile_frame_8.png
+│   │   │   │   ├── profile_frame_9.png
+│   │   │   │   ├── profile_frame_final.png
+│   │   │   │   └── themes
+│   │   │   │       ├── slim_theme.png
+│   │   │   │       ├── space_theme.png
+│   │   │   │       ├── theme_cyberpunk.png
+│   │   │   │       ├── theme_dark.png
+│   │   │   │       └── theme_light.png
+│   │   │   ├── sociaal_features
+│   │   │   │   ├── instagram_badge.png
+│   │   │   │   └── leaderboard_trophy.png
+│   │   │   ├── special_items
+│   │   │   │   ├── VIP_token.png
+│   │   │   │   ├── exclusive_pass.png
+│   │   │   │   └── mystery_box.png
+│   │   │   └── trading_business
+│   │   │       ├── investment_plan.png
+│   │   │       ├── real_estate_docs.png
+│   │   │       └── trading_contract.png
+│   │   └── ui
+│   │       └── button_images
+│   │           ├── button-airdrop.png
+│   │           ├── button_leaderboard.png
+│   │           ├── button_play.png
+│   │           ├── button_settings.png
+│   │           ├── button_start.png
+│   │           ├── button_tasks.png
+│   │           ├── button_trading.png
+│   │           ├── button_wallet.png
+│   │           └── sound
+│   │               ├──  Menu Navigation Sounds
+│   │               │   ├── menu_close.wav
+│   │               │   ├── menu_open.wav
+│   │               │   └── scroll.wav
+│   │               ├── Button & Click Sounds
+│   │               │   ├── button_back.wav
+│   │               │   ├── button_click.wav
+│   │               │   └── button_hover.wav
+│   │               ├── Notification & Pop-ups
+│   │               │   ├── notification_alert.wav
+│   │               │   ├── popup_close.wav
+│   │               │   └── popup_open.wav
+│   │               ├── Special Effects (Airdrop, Coin, Rewards)
+│   │               │   ├── airdrop_fall.wav
+│   │               │   ├── coin_collect.wav
+│   │               │   └── reward_claim.wav
+│   │               ├── Success & Error Sounds
+│   │               │   ├── error.wav
+│   │               │   └── success.wav
+│   │               ├── UI Animations & Effects
+│   │               │   ├── level_up.wav
+│   │               │   ├── loading_loop.wav
+│   │               │   └── ui_transition.wav
+│   │               └── background-music
+│   │                   └── background_home_music_clean.mp3
+│   ├── background
+│   │   ├── ai_robota_background.jpg
+│   │   ├── background.jpg
+│   │   ├── game_background.png
+│   │   ├── leaderboard_background.jpg
+│   │   ├── lottery_background.jpg
+│   │   ├── menu_background.jpg
+│   │   ├── settings_background.jpg
+│   │   ├── tasks_background.jpg
+│   │   └── trading_background.jpg
+│   ├── icons
+│   │   ├──  home_icon.png
+│   │   ├── ai_robota_icon.png
+│   │   ├── business_empire_icon.png
+│   │   ├── coin_icon.png
+│   │   ├── help_icon.png
+│   │   ├── leaderboard_icon.png
+│   │   ├── logout_icon.png
+│   │   ├── lottery_icon.png
+│   │   ├── notification_icon.png
+│   │   ├── settings_icon.png
+│   │   ├── tasks_icon.png
+│   │   └── trading_icon.png
+│   └── logo.png
+└── js
+    ├── ai_robota.js:
+    ├── business_empire.js
+    ├── leaderboard.js
+    ├── lottery.js
+    ├── script.js
+    ├── settings.js
+    ├── tasks.js
+    └── trading.js
 |
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
