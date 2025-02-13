@@ -25,7 +25,7 @@ if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 # Ensure static folder tracking
 @app.route('/static/<path:filename>')
