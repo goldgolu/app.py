@@ -19,7 +19,6 @@
 │   └── trading.py             # Trading logic
 |
 └── README.md                  # Project documentation
-
 ├── templates/                 # HTML templates for Flask
 │   ├── layout.html            # Base layout for the application
 │   ├── index.html             # Landing page for the game
