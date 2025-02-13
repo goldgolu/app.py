@@ -1,7 +1,25 @@
 /paws_running
 ├── app.py                     # Main application file (Flask + Telegram bot)
 ├── requirements.txt           # Python dependencies
-├── .env                       # Environment variables (optional)
+├── gitinore/                  # Environment variables (optional)
+│    └──.env
+│
+├── database/                  # Database related files
+│   ├── game_data.db           # SQLite database file
+│   └── init_db.py             # Database initialization script
+|
+├── tasks/                     # Task-related files
+│   ├── tasks.py               # Task management logic
+│   └── lottery.py             # Lottery management logic
+|
+├── ai/                        # AI bot related files
+│   └── ai_bot.py              # AI bot logic
+|
+├── trading/                   # Trading related files
+│   └── trading.py             # Trading logic
+|
+└── README.md                  # Project documentation
+
 ├── templates/                 # HTML templates for Flask
 │   ├── layout.html            # Base layout for the application
 │   ├── index.html             # Landing page for the game
@@ -175,7 +193,7 @@
 │   │   └── trading_icon.png
 │   └── logo.png
 └── js
-|    ├── ai_robota.js:
+    ├── ai_robota.js:
     ├── business_empire.js
     ├── leaderboard.js
     ├── lottery.js
@@ -183,19 +201,3 @@
     ├── settings.js
     ├── tasks.js
     └── trading.js
-|
-├── database/                  # Database related files
-│   ├── game_data.db           # SQLite database file
-│   └── init_db.py             # Database initialization script
-|
-├── tasks/                     # Task-related files
-│   ├── tasks.py               # Task management logic
-│   └── lottery.py             # Lottery management logic
-|
-├── ai/                        # AI bot related files
-│   └── ai_bot.py              # AI bot logic
-|
-├── trading/                   # Trading related files
-│   └── trading.py             # Trading logic
-|
-└── README.md                  # Project documentation
