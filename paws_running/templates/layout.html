@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}PAWS 🐾 RUNNING{% endblock %}</title>
+    
+    <!-- CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
 </head>
 <body>
     <header>
@@ -17,22 +22,53 @@
             </ul>
         </nav>
     </header>
+    
     <main>
         {% block content %}{% endblock %}
     </main>
+
     <footer>
         <p>&copy; 2023 PAWS 🐾 RUNNING. All rights reserved.</p>
     </footer>
 
+    <!-- Config JSON Load -->
     <script>
-        // Fetch UI configuration
         fetch("{{ url_for('static', filename='config/ui_config.json') }}")
             .then(response => response.json())
             .then(data => {
                 console.log("UI Config Loaded:", data);
-                // Further customization logic here if needed
             })
             .catch(error => console.error("Error loading UI config:", error));
     </script>
+
+    <!-- Dynamic Image Loader -->
+    <script>
+        const imagePaths = [
+            "{{ url_for('static', filename='images/background/game_background.png') }}",
+            "{{ url_for('static', filename='images/assets/characters/doge_runner.png') }}",
+            "{{ url_for('static', filename='images/icons/home_icon.png') }}",
+            "{{ url_for('static', filename='images/items/boosters/speed_boost.png') }}",
+            "{{ url_for('static', filename='images/items/special_items/mystery_box.png') }}"
+        ];
+
+        function preloadImages() {
+            imagePaths.forEach(path => {
+                const img = new Image();
+                img.src = path;
+                console.log("Preloading Image:", path);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", preloadImages);
+    </script>
+
+    <!-- JavaScript Files -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lottery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/trading.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/tasks.js') }}"></script>
+
 </body>
 </html>
