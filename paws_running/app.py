@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from paws_running.settings import STATIC_FOLDER, TEMPLATE_FOLDER
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
