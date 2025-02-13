@@ -1,3 +1,4 @@
+import os  # <-- This line is missing, add this at the top!
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_FOLDER = os.path.join(BASE_DIR, '../static')
