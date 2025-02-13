@@ -27,6 +27,11 @@ if __name__ == "__main__":
 
 app = Flask(__name__)
 
+# Ensure static folder tracking
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+
 @app.route('/')
 def home():
     return render_template('index.html')
