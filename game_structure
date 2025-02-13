@@ -192,11 +192,14 @@
 │   │   └── trading_icon.png
 │   └── logo.png
 └── js
-    ├── ai_robota.js:
-    ├── business_empire.js
-    ├── leaderboard.js
-    ├── lottery.js
-    ├── script.js
-    ├── settings.js
-    ├── tasks.js
-    └── trading.js
+│   ├── ai_robota.js
+│   ├── business_empire.js
+│   ├── leaderboard.js
+│   ├── lottery.js
+│   ├── script.js
+│   ├── settings.js
+│   ├── tasks.js
+│   └── trading.js
+│
+└── config/
+    └── ui_config.json
