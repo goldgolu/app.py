@@ -3,7 +3,8 @@
 ├── requirements.txt           # Python dependencies
 ├── gitinore/                  # Environment variables (optional)
 │    └──.env
-│
+├──settings.py
+├──build.sh
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
 │   └── init_db.py             # Database initialization script
