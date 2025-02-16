@@ -18,7 +18,7 @@ INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
 INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
 REDIRECT_URI = 'http://127.0.0.1:5000/instagram/callback'
 BOT_TOKEN = os.getenv('BOT_TOKEN', 'default_token')
-FLASK_SERVER_URL = 'http://127.0.0.1:5000'
+FLASK_SERVER_URL = 'http://127.0.0.1:10000'
 
 OWNER_ID = os.getenv('OWNER_ID', '12345678')
 
@@ -456,7 +456,7 @@ def fetch_instagram_data(access_token):
 
 # Run Flask and Telegram bot concurrently
 def run_flask():
-    app.run(port=5000)
+    app.run(port=10000)
 
 def run_telegram():
     updater = Updater(BOT_TOKEN)
