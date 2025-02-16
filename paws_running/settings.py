@@ -1,17 +1,11 @@
-import os  # Importing os module
+import os  
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_FOLDER = os.path.join(BASE_DIR, '../static')
-TEMPLATE_FOLDER = os.path.join(BASE_DIR, '../templates')
-
-# Print paths for debugging
-print(f"TEMPLATE_FOLDER: {TEMPLATE_FOLDER}")
-print(f"STATIC_FOLDER: {STATIC_FOLDER}")
+PROJECT_ROOT = os.path.dirname(BASE_DIR)  # Ye ensure karega ki templates sahi path pe mile
+STATIC_FOLDER = os.path.join(PROJECT_ROOT, 'static')
+TEMPLATE_FOLDER = os.path.join(PROJECT_ROOT, 'templates')
 
 # Render Deployment Config
 DEBUG = False
-PORT = 10000  # Syncing with FLASK_SERVER_URL
+PORT = int(os.getenv("PORT", 5000))  # Render ka PORT variable use karega
 HOST = "0.0.0.0"
-
-# Database Config (Future use case)
-# DB_URI = "mysql://user:password@host/dbname"  # Example
