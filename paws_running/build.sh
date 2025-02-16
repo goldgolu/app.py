@@ -7,35 +7,32 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Set environment variables
-export FLASK_APP=app.py
+export FLASK_APP=paws_running/app.py  # Correct path
 export FLASK_ENV=production
 export FLASK_RUN_HOST=0.0.0.0
-export FLASK_RUN_PORT=10000  # Render default port
+export FLASK_RUN_PORT=10000  # Render's default port
 
-# Ensure static files are correctly found
-echo "Checking Static Files..."
-if [ -d "static" ]; then
-    echo "Static directory exists."
-    find static -type d -exec chmod 755 {} \;
-    find static -type f -exec chmod 644 {} \;
-else
+# Ensure static and templates directories exist
+echo "Checking Static & Template Files..."
+if [ ! -d "paws_running/static" ]; then
     echo "Static directory missing! Creating..."
-    mkdir static
+    mkdir -p paws_running/static
 fi
 
-# Ensure all subfolders exist
-for dir in static/css static/js static/images static/fonts; do
-    if [ ! -d "$dir" ]; then
-        echo "Creating missing directory: $dir"
-        mkdir -p "$dir"
-    fi
-done
+if [ ! -d "paws_running/templates" ]; then
+    echo "Templates directory missing! Creating..."
+    mkdir -p paws_running/templates
+fi
 
-echo "Static Files Checked and Fixed."
+# Apply correct permissions
+find paws_running/static -type d -exec chmod 755 {} \;
+find paws_running/static -type f -exec chmod 644 {} \;
+find paws_running/templates -type d -exec chmod 755 {} \;
+find paws_running/templates -type f -exec chmod 644 {} \;
 
-# Run Database Migrations (if required)
-# flask db upgrade
+echo "Static & Template Files Checked and Fixed."
 
 # Start Flask App
 echo "Starting Flask Application..."
+cd paws_running  # Go inside project folder
 gunicorn -w 4 -b 0.0.0.0:10000 app:app
