@@ -10,7 +10,7 @@ print(f"STATIC_FOLDER: {STATIC_FOLDER}")
 
 # Render Deployment Config
 DEBUG = False
-PORT = 5000  # Syncing with FLASK_SERVER_URL
+PORT = 10000  # Syncing with FLASK_SERVER_URL
 HOST = "0.0.0.0"
 
 # Database Config (Future use case)
