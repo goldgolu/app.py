@@ -4,7 +4,7 @@ echo "Starting Deployment Process..."
 
 # Install dependencies
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r requirements.txt || { echo "❌ Failed to install dependencies"; exit 1; }
 
 # Set environment variables
 export FLASK_APP=paws_running/app.py  # Correct path
@@ -25,6 +25,7 @@ if [ ! -d "paws_running/templates" ]; then
 fi
 
 # Apply correct permissions
+echo "Fixing permissions for static and template files..."
 find paws_running/static -type d -exec chmod 755 {} \;
 find paws_running/static -type f -exec chmod 644 {} \;
 find paws_running/templates -type d -exec chmod 755 {} \;
@@ -32,7 +33,7 @@ find paws_running/templates -type f -exec chmod 644 {} \;
 
 echo "Static & Template Files Checked and Fixed."
 
-# Start Flask App
+# Start Flask App with Gunicorn
 echo "Starting Flask Application..."
 cd paws_running  # Go inside project folder
 gunicorn -w 4 -b 0.0.0.0:10000 app:app
