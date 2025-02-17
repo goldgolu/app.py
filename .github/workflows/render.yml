@@ -42,8 +42,8 @@ jobs:
 
       - name: Run Build Script
         run: |
-          chmod +x ./build.sh  # Make build.sh executable
-          ./build.sh  # Run the build script
+          chmod +x paws_running/build.sh  # Correct path to build.sh
+          paws_running/build.sh  # Run the build script
 
       - name: Run Database Migrations (SQLite3)
         run: |
