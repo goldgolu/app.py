@@ -21,8 +21,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          echo "Upgrading pip..."
           pip install --upgrade pip
-          pip install -r paws_running/requirements.txt
+          echo "Installing dependencies..."
+          pip install -r paws_running/requirements.txt || pip install -r paws_running/requirements.txt --use-deprecated=legacy-resolver
 
       - name: Check for Missing Files
         run: |
@@ -42,8 +44,10 @@ jobs:
 
       - name: Run Build Script
         run: |
-          chmod +x paws_running/build.sh  # Correct path to build.sh
-          paws_running/build.sh  # Run the build script
+          echo "Making build.sh executable..."
+          chmod +x paws_running/build.sh  # Ensure build.sh is executable
+          echo "Running build script..."
+          paws_running/build.sh  # Execute the build script
 
       - name: Run Database Migrations (SQLite3)
         run: |
