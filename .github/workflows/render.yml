@@ -40,6 +40,11 @@ jobs:
             exit 1
           fi
 
+      - name: Run Build Script
+        run: |
+          chmod +x ./build.sh  # Make build.sh executable
+          ./build.sh  # Run the build script
+
       - name: Run Database Migrations (SQLite3)
         run: |
           python -c "from paws_running.app import db; db.create_all()" || echo "⚠️ Database migration failed"
