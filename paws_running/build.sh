@@ -2,9 +2,26 @@
 
 echo "Starting Deployment Process..."
 
-# Install dependencies
+# Install dependencies with retry mechanism
+echo "Upgrading pip..."
 pip install --upgrade pip
-pip install -r requirements.txt || { echo "❌ Failed to install dependencies"; exit 1; }
+
+echo "Installing dependencies..."
+MAX_RETRIES=3
+RETRY_COUNT=0
+SUCCESS=false
+
+while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+  pip install -r requirements.txt && SUCCESS=true && break
+  echo "❌ Failed to install dependencies. Retrying... ($((RETRY_COUNT+1))/$MAX_RETRIES)"
+  ((RETRY_COUNT++))
+  sleep 5
+done
+
+if [ "$SUCCESS" != true ]; then
+  echo "❌ Failed to install dependencies after $MAX_RETRIES attempts"
+  exit 1
+fi
 
 # Set environment variables
 export FLASK_APP=paws_running/app.py  # Correct path
@@ -32,6 +49,16 @@ find paws_running/templates -type d -exec chmod 755 {} \;
 find paws_running/templates -type f -exec chmod 644 {} \;
 
 echo "Static & Template Files Checked and Fixed."
+
+# Ensure Gunicorn is installed and available
+echo "Checking for Gunicorn..."
+if ! command -v gunicorn &> /dev/null
+then
+    echo "❌ Gunicorn not found. Installing..."
+    pip install gunicorn
+else
+    echo "✅ Gunicorn is already installed."
+fi
 
 # Start Flask App with Gunicorn
 echo "Starting Flask Application..."
