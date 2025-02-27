@@ -1,6 +1,9 @@
 import os  
 
-CELERY_BROKER_URL = "redis://default:<your_redis_password>@<your_redis_host>:6379"
+REDIS_URL = os.getenv("REDIS_URL", "rediss://your-redis-host:6379")
+
+CELERY_BROKER_URL = REDIS_URL
+CELERY_RESULT_BACKEND = REDIS_URL
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)  # Ye ensure karega ki templates sahi path pe mile
