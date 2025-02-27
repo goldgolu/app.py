@@ -9,6 +9,7 @@
 │   └── init_db.py             # Database initialization script
 │
 ├── tasks/                     # Task-related files
+│   │── __init__.py            # Yeh file add karni hai
 │   ├── tasks.py               # Task management logic
 │   └── lottery.py             # Lottery management logic
 │
