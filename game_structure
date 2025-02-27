@@ -2,7 +2,6 @@
 ├── app.py                     # Main application file (Flask + Telegram bot)
 ├── settings.py                # Configuration settings
 ├── requirements.txt           # Python dependencies
-├── build.sh                   # Deployment script (if needed)
 ├── .gitignore                 # Git ignore file
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
