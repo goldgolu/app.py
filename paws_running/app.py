@@ -18,6 +18,8 @@ import sqlite3
 
 __all__ = ["celery", "add_task", "complete_task", "get_tasks", "enter_lottery", "draw_lottery_winner"]
 
+
+
 # Environment variables for secrets
 INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
 INSTAGRAM_CLIENT_SECRET = os.getenv('INSTAGRAM_CLIENT_SECRET', 'Mohali@321')
