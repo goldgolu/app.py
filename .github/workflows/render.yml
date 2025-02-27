@@ -58,10 +58,22 @@ jobs:
           touch paws_running/tests/test_results.log
           pytest paws_running/tests/ | tee paws_running/tests/test_results.log || echo "Tests Failed" > paws_running/tests/test_results.log
 
-      - name: Start Gunicorn Server for Debugging
+      - name: Start Redis Server (For Celery & Leaderboard)
         run: |
-          echo "🚀 Running Gunicorn for Flask app..."
-          gunicorn -w 4 -b 0.0.0.0:8000 paws_running.app:app || echo "⚠️ Gunicorn Failed!"
+          echo "🚀 Starting Redis Server..."
+          sudo apt update && sudo apt install -y redis-server
+          sudo service redis-server start
+          redis-cli ping || echo "⚠️ Redis not responding!"
+
+      - name: Start Celery Worker (For Airdrop Processing)
+        run: |
+          echo "🚀 Starting Celery Worker..."
+          celery -A paws_running.app.celery worker --loglevel=info &
+
+      - name: Start Gunicorn Server for Flask-SocketIO
+        run: |
+          echo "🚀 Running Gunicorn for Flask-SocketIO..."
+          gunicorn -k eventlet -w 1 -b 0.0.0.0:8000 paws_running.app:app || echo "⚠️ Gunicorn Failed!"
 
       - name: Deploy to Render
         env:
