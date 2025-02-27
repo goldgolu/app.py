@@ -25,13 +25,39 @@ OWNER_ID = os.getenv('OWNER_ID', '12345678')
 if __name__ == "__main__":
     if os.getenv("FLASK_ENV") == "development":
         download_fonts()
+        
+app = Flask(__name__)
 
-app = Flask(__name__, static_folder=STATIC_FOLDER, template_folder=TEMPLATE_FOLDER)
+# Ensure Flask finds templates & static folders
+app.template_folder = os.path.join(os.getcwd(), 'templates')
+app.static_folder = os.path.join(os.getcwd(), 'static')
 
-# Ensure static folder tracking
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+
+def list_project_files():
+    """List all files inside templates and static folders"""
+    project_files = {"templates": [], "static": []}
+
+    # Check templates folder
+    templates_path = os.path.join(os.getcwd(), 'templates')
+    if os.path.exists(templates_path):
+        for root, dirs, files in os.walk(templates_path):
+            for file in files:
+                project_files["templates"].append(os.path.relpath(os.path.join(root, file), templates_path))
+
+    # Check static folder
+    static_path = os.path.join(os.getcwd(), 'static')
+    if os.path.exists(static_path):
+        for root, dirs, files in os.walk(static_path):
+            for file in files:
+                project_files["static"].append(os.path.relpath(os.path.join(root, file), static_path))
+
+    return project_files
+
+
+@app.route('/list-files')
+def show_files():
+    files = list_project_files()
+    return {"templates": files["templates"], "static": files["static"]}
 
 @app.route('/')
 def home():
@@ -81,7 +107,8 @@ def health_check():
 def serve_config(filename):
     return send_from_directory('static/config', filename)
     
-if __name__ == "__main__":
+if __name__ == '__main__':
+    print("Listing all project files:", list_project_files())  # Debugging
     app.run(debug=True)
 
 class AiRobota:
