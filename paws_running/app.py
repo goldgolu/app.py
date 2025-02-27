@@ -124,7 +124,7 @@ def serve_config(filename):
     
 if __name__ == '__main__':
     print("Listing all project files:", list_project_files())  # Debugging
-    app.run(debug=True)
+    socketio.run(app, host="0.0.0.0", port=8000, debug=True)
 
 class AiRobota:
     def __init__(self, owner_id):
