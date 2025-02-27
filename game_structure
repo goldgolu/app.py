@@ -3,7 +3,7 @@
 ├── settings.py                # Configuration settings
 ├── requirements.txt           # Python dependencies
 ├── .gitignore                 # Git ignore file
-│── start.sh
+├── start.sh
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
 │   └── init_db.py             # Database initialization script
