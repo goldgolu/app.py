@@ -1,7 +1,7 @@
 import os
 from celery import Celery
 
-REDIS_URL = os.getenv("REDIS_URL", "rediss://your-redis-host:6379")
+REDIS_URL = os.getenv("REDIS_URL", "rediss://your-redis-host:6379?ssl_cert_reqs=CERT_NONE")
 
 celery = Celery(
     "tasks",
