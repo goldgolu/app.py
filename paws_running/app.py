@@ -7,7 +7,7 @@ from urllib.parse import quote as url_quote
 from flask_socketio import SocketIO
 from celery import Celery
 from .tasks import add_task, complete_task, get_tasks
-from tasks.lottery import enter_lottery, draw_lottery_winner
+from paws_running.tasks.lottery import enter_lottery, draw_lottery_winner
 import redis
 import requests
 import threading
