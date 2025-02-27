@@ -7,6 +7,7 @@
 ├── database/                  # Database related files
 │   ├── game_data.db           # SQLite database file
 │   └── init_db.py             # Database initialization script
+│── celery.py
 │
 ├── tasks/                     # Task-related files    
 │   │── tasks_list.py
