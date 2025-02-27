@@ -1,5 +1,7 @@
 import os  
 
+CELERY_BROKER_URL = "redis://default:<your_redis_password>@<your_redis_host>:6379"
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)  # Ye ensure karega ki templates sahi path pe mile
 STATIC_FOLDER = os.path.join(PROJECT_ROOT, 'static')
