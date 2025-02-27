@@ -8,7 +8,8 @@
 │   ├── game_data.db           # SQLite database file
 │   └── init_db.py             # Database initialization script
 │
-├── tasks/                     # Task-related files
+├── tasks/                     # Task-related files    
+│   │── tasks_list.py
 │   │── __init__.py            # Yeh file add karni hai
 │   ├── tasks.py               # Task management logic
 │   └── lottery.py             # Lottery management logic
