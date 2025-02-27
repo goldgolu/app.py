@@ -22,9 +22,6 @@ celery = Celery(
     backend="redis://localhost:6379/0"
 )
 
-from .tasks import add_task, complete_task, get_tasks
-from .lottery import enter_lottery, draw_lottery_winner
-
 __all__ = ["celery", "add_task", "complete_task", "get_tasks", "enter_lottery", "draw_lottery_winner"]
 
 
