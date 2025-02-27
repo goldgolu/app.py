@@ -1,9 +1,11 @@
 #!/bin/bash
 echo "🚀 Starting Flask Server..."
 
-# Redis + Celery Ensure Active
+# Redis Background Me Run Karo
 redis-server --daemonize yes
+
+# Celery Worker Background Me Chalao
 celery -A paws_running.tasks worker --loglevel=info &
 
-# Gunicorn with Eventlet
+# Gunicorn Ko Correctly Start Karo
 exec gunicorn -k eventlet -w 1 -b 0.0.0.0:8000 paws_running.app:app
