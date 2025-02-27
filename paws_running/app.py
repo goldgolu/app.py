@@ -5,7 +5,7 @@ from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, Callback
 from flask import request, redirect, jsonify
 from urllib.parse import quote as url_quote
 from flask_socketio import SocketIO
-from celery import Celery
+from paws_running.celery import celery
 from .tasks import add_task, complete_task, get_tasks
 from paws_running.tasks.lottery import enter_lottery, draw_lottery_winner
 import redis
@@ -92,7 +92,7 @@ def show_files():
     
 @app.route('/')
 def index():
-    return "Paws Running Game Server Running!"
+    return "Flask + Celery Running!"
     
 @app.route('/')
 def home():
