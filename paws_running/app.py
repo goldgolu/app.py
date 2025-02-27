@@ -6,6 +6,8 @@ from flask import request, redirect, jsonify
 from urllib.parse import quote as url_quote
 from flask_socketio import SocketIO
 from celery import Celery
+from .tasks import add_task, complete_task, get_tasks
+from .lottery import enter_lottery, draw_lottery_winner
 import redis
 import requests
 import threading
@@ -14,7 +16,7 @@ import time
 import random
 import sqlite3
 
-
+__all__ = ["celery", "add_task", "complete_task", "get_tasks", "enter_lottery", "draw_lottery_winner"]
 
 # Environment variables for secrets
 INSTAGRAM_CLIENT_ID = os.getenv('INSTAGRAM_CLIENT_ID', 'mohammad')
