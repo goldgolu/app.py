@@ -30,7 +30,13 @@ if __name__ == "__main__":
         download_fonts()
         
 app = Flask(__name__)
-socketio = SocketIO(app, async_mode="eventlet", cors_allowed_origins="*")
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+
+socketio = SocketIO(app, async_mode='eventlet')
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 # Redis Setup
 cache = redis.Redis(host='localhost', port=6379, db=0)
@@ -73,7 +79,11 @@ def list_project_files():
 def show_files():
     files = list_project_files()
     return {"templates": files["templates"], "static": files["static"]}
-
+    
+@app.route('/')
+def index():
+    return "Paws Running Game Server Running!"
+    
 @app.route('/')
 def home():
     return render_template('index.html')
