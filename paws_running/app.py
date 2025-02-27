@@ -4,6 +4,9 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 from flask import request, redirect, jsonify
 from urllib.parse import quote as url_quote
+from flask_socketio import SocketIO
+from celery import Celery
+import redis
 import requests
 import threading
 import os
@@ -27,6 +30,18 @@ if __name__ == "__main__":
         download_fonts()
         
 app = Flask(__name__)
+socketio = SocketIO(app, async_mode="eventlet", cors_allowed_origins="*")
+
+# Redis Setup
+cache = redis.Redis(host='localhost', port=6379, db=0)
+
+# Celery Setup
+def make_celery(app):
+    celery = Celery(app.import_name, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
+    celery.conf.update(app.config)
+    return celery
+
+celery = make_celery(app)
 
 # Ensure Flask finds templates & static folders
 app.template_folder = os.path.join(os.getcwd(), 'templates')
