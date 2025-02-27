@@ -9,6 +9,9 @@ celery = Celery(
     backend=REDIS_URL
 )
 
+# ✅ Add SSL Fix
 celery.conf.update(
-    result_expires=3600  # Results expire in 1 hour
+    broker_use_ssl={"ssl_cert_reqs": "CERT_NONE"},
+    result_backend_use_ssl={"ssl_cert_reqs": "CERT_NONE"},
+    result_expires=3600
 )
